@@ -28,15 +28,9 @@ function Carousel() {
                 modules={[Pagination, Navigation]}
                 className="mySwiper"
             >
-                <SwiperSlide></SwiperSlide>
-                <SwiperSlide></SwiperSlide>
-                <SwiperSlide></SwiperSlide>
-                <SwiperSlide></SwiperSlide>
-                <SwiperSlide></SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
+                <SwiperSlide>
+                    
+                </SwiperSlide>
             </Swiper>
         </>
     );
