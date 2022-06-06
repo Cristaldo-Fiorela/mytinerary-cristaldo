@@ -1,26 +1,80 @@
-
+//import React from "react"
 
 var cities = 
 
     [{
-        "name": "antonela",
-        "image": "./asserts/1.png",
-        "description": "hola como estas"
+        "id": "1",
+        "name": "Tokio",
+        "image": "",
+        "description": ""
     },
     {
-        "name": "bosacio",
-        "image": "./asserts/2.png",
-        "description": "hola como estas"
+        "id" : "2",
+        "name": "Kioto",
+        "image": "",
+        "description": ""
     },
     {
-        "name": "porota",
-        "image": "./asserts/3.png",
-        "description": "hola como estas"
+        "id" : "3",
+        "name": "Nara",
+        "image": "",
+        "description": ""
     },
     {
-        "name": "china",
-        "image": "./asserts/4.png",
-        "description": "hola como estas"
+        "id" : "4",
+        "name": "Osaka",
+        "image": "",
+        "description": ""
+    },
+    {
+        "id" : "5",
+        "name": "Yokohama",
+        "image": "",
+        "description": ""
+    },
+    {
+        "id" : "6",
+        "name": "Kobe",
+        "image": "",
+        "description": ""
+    },
+    {
+        "id" : "7",
+        "name": "Nagoya",
+        "image": "",
+        "description": ""
+    },
+    {
+        "id" : "8",
+        "name": "Hiroshima",
+        "image": "",
+        "description": ""
+    },
+    {
+        "id" : "9",
+        "name": "Nagano",
+        "image": "",
+        "description": ""
+    },
+    {
+        "id" : "10",
+        "name": "Sapporo",
+        "image": "",
+        "description": ""
+    },
+    {
+        "id" : "11",
+        "name": "Fukuoka",
+        "image": "",
+        "description": ""
+    },
+    {
+        "id" : "12",
+        "name": "Kamakura",
+        "image": "",
+        "description": ""
     }
+    ]
 
-]
+export default cities
+

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -12,7 +12,8 @@ import "../styles/carousel.css";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
-function Carousel() {
+
+function Carousel(props) {
     return (
         <>
             <Swiper
@@ -28,9 +29,14 @@ function Carousel() {
                 modules={[Pagination, Navigation]}
                 className="mySwiper"
             >
-                <SwiperSlide>
-                    
+            
+
+            {props.allCities.map(city =>
+                <SwiperSlide key={city.id}>
+                    <img href={city.image} alt="hola"></img> 
                 </SwiperSlide>
+            )}
+            
             </Swiper>
         </>
     );
