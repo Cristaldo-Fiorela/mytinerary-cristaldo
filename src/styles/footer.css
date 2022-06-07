@@ -1,6 +1,10 @@
 .footerNav {
     background-color: #285954;
-    height: 15vh;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .copyrg {
@@ -10,4 +14,12 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+.navFooter>a {
+    text-decoration: none;
+}
+.navFooter {
+    display: flex;
+    gap: 3rem;
 }
