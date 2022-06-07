@@ -38,7 +38,7 @@ const ResponsiveAppBar = () => {
     };
 
     return (
-        <AppBar position="static" className='navbar-color'>
+        <AppBar position="sticky" className='navbar-color'>
             <Container maxWidth="xl">
                 <Toolbar  disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
