@@ -4,8 +4,27 @@
 }
 
 .banner {
-    background-color: #F2F2F2;
+    height: 65vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, 0.733);
+    /* background-color: #a62d436a; */
+    color: aliceblue;
 }
+
+.background-video {
+    position: fixed;
+    width: 100%;
+    height: 65vh;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+
 
 
 /* colores:
