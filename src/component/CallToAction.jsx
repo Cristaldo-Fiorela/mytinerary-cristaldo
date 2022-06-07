@@ -1,6 +1,5 @@
 import React from "react";
 import Geisha from "../asserts/geisha.png"
-import { Button } from "@mui/material";
 
 import '../styles/toAction.css'
 
@@ -10,9 +9,15 @@ function CallToAction() {
         <div className="to-action">
             <img src={Geisha} alt="geisha" className="geisha-img" />
             <div>
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum expedita omnis iusto odio? A, minima.</h2>
-            <Button style={{color:"#A62D43"}} variant="outline">Hola soy un boton</Button>
+            <h2>Have you always dreamed of walking under cherry trees in the spring?</h2>
+            <h2>Do you love the magical atmosphere between the bustling city and calm temples?</h2>
+            <h2>Whether you are into food, culture, history or the outdoors Japan has it all.</h2>
+            <h2>Whatever you want, you can find it in Japan.</h2>
             </div>
+            <div class="button-borders">
+                <button class="primary-button"> GET STARTED!
+            </button>
+</div>
         </div>
     )
 

@@ -16,7 +16,7 @@ function Footer() {
                         <img src={logoColor} alt="LOGO" style={{height: "10rem"}} />
         </div>
         <div className="copyrg">
-            <p> © All rights reserved Cristaldo Fiorela</p>
+            <p> Copyright © 2022 Cristaldo Fiorela</p>
         </div>
         </>
     )
