@@ -9,8 +9,8 @@ import cities from './dataCities';
 function App() {
   return (
     <div className="App">
-      <NavBar></NavBar>
-      <BannerSlogan></BannerSlogan>
+      <NavBar />
+      <BannerSlogan />
       <Carousel allCities={cities} />
     </div>
   );
