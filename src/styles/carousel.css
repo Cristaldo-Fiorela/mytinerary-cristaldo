@@ -6,7 +6,7 @@
 
 .popularMyTinerary {
   height: 20vh;
-  background-image: url(../asserts/banner-favTinerary.png);
+  background-image: url(/public/assets/banner-favTinerary.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

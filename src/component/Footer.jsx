@@ -1,6 +1,6 @@
 import React from "react";
 import '../styles/footer.css'
-import logoColor from '../asserts/logoMyTineraryColor.png'
+//import logoColor from '../asserts/logoMyTineraryColor.png'
 
 function Footer() {
     return (
@@ -13,7 +13,7 @@ function Footer() {
                 <a href="-">Home</a>
                 <a href="-">Cities</a>
             </nav>
-                        <img src={logoColor} alt="LOGO" style={{height: "10rem"}} />
+                        <img src={process.env.PUBLIC_URL+"/assets/logoMyTineraryColor.png"} alt="LOGO" style={{height: "10rem"}} />
         </div>
         <div className="copyrg">
             <p> Copyright © 2022 Cristaldo Fiorela</p>

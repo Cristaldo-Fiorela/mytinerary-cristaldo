@@ -11,11 +11,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+//import AdbIcon from '@mui/icons-material/Adb';
 
 
 import '../styles/navbar.css'
-import logo from '../asserts/logo.png'
+//import logo from '../asserts/logo.png'
 
 const pages = ['Home', 'Cities'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -43,7 +43,7 @@ const ResponsiveAppBar = () => {
         <AppBar position="sticky" className='navbar-color'>
             <Container maxWidth="xl">
                 <Toolbar  disableGutters>
-                    <img src={logo} alt="logo" style={{height: "4rem"}} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
@@ -81,7 +81,7 @@ const ResponsiveAppBar = () => {
                             ))}
                         </Menu>
                     </Box>
-                    <img src={logo} alt="logo" style={{height: "4rem"}} sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}/>
+                    <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}/>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
