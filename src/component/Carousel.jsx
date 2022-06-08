@@ -31,7 +31,7 @@ function popularTinerary(props) {
                     grid={{
                         rows: 2,
                     }}
-                    spaceBetween={30}
+                    spaceBetween={20}
                     autoplay={{
                         delay: 2500,
                         disableOnInteraction: false,
@@ -44,10 +44,12 @@ function popularTinerary(props) {
                     className="mySwiper"
                 >
                     {props.allCities.map((city, index) =>
-                        <SwiperSlide key={index}>
-                            <div className="swiperContainer">
+                        <SwiperSlide key={index}
+                            style={{ backgroundImage: `url(${process.env.PUBLIC_URL + (city.image)})` }}
+                            className="carruselImages"
+                        >
+                            <div className="titleContainer">
                                 <h3 className="swiperTitle">{(city.name)}</h3>
-                                <img src={process.env.PUBLIC_URL +(city.image)} className="carruselImages" alt="Japan's Cities" />
                             </div>
                         </SwiperSlide>)}
                 </Swiper>

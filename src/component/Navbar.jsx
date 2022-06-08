@@ -11,6 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 //import AdbIcon from '@mui/icons-material/Adb';
 
 
@@ -104,7 +105,7 @@ const ResponsiveAppBar = () => {
                     {/* <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} /> */}
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                <AccountCircleIcon style={{color: "#F2F2F2"}} fontSize="large"/>
                             </IconButton>
                         </Tooltip>
                         <Menu
