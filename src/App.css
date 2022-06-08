@@ -7,11 +7,13 @@
     text-decoration: none;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
-/* colores:
 
-primario ----> #A62D43 (fuccia)
-secundario ----> #9FBFB9 (verde claro)
-tercer ----> #285954 (verde oscuro)
+/* color:
+
+primary ----> #A62D43 (fuccia)
+secondary ----> #9FBFB9 (verde claro)
+third ----> #285954 (verde oscuro)
 
 base ---> #F2F2F2  */
