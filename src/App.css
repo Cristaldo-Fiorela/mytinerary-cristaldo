@@ -38,3 +38,8 @@ secondary ----> #9FBFB9 (verde claro)
 third ----> #285954 (verde oscuro)
 
 base ---> #F2F2F2  */
+
+p::selection, h4::selection, h2::selection, h5::selection, label::selection, img::selection, h1::selection, h3::selection, input::selection, button::selection {
+    background: #F27E7E;
+    color: #fff;
+}
