@@ -84,6 +84,10 @@
 }
 
 
+.swiper-pagination-bullet, .swiper-button-next, .swiper-button-prev {
+  color: #A62D43 !important;
+}
+
 @media (max-width: 1200px) {
   .mySwiper {
     height: 60vw;

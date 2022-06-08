@@ -4,6 +4,7 @@ import '../styles/footer.css'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { Link as LinkRouter } from "react-router-dom";
 //import logoColor from '../asserts/logoMyTineraryColor.png'
 
 
@@ -23,8 +24,14 @@ function Footer() {
                 </Button>
             </div>
             <div className="navFooter">
-                <Button style={{color: "#F2F2F2"}}>Home</Button>
-                <Button  style={{color: "#F2F2F2"}}>Cities</Button>
+                <LinkRouter to= './'>
+                    <Button  style={{color: "#F2F2F2"}}>Home</Button>
+                </LinkRouter>
+
+                <LinkRouter to= './Cities'>
+                    <Button  style={{color: "#F2F2F2"}}>Cities</Button>
+                </LinkRouter>
+                
             </div>
             <img src={process.env.PUBLIC_URL+"/assets/logoMyTineraryColor.png"} className="footerLogo" alt="LOGO" style={{height: "10rem"}} />
         </div>

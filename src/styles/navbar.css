@@ -4,3 +4,11 @@
     padding-top: .5vw;
     padding-bottom: .5vw;
 }
+
+.colorMenu {
+    color: #A62D43;
+}
+
+.colorMenu:hover {
+    background-color: #c45d70 ;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link as LinkRouter } from "react-router-dom";
 //import Geisha from "../asserts/geisha.png"
 
 import '../styles/toAction.css'
@@ -17,7 +18,9 @@ function CallToAction() {
                     <h2>Whatever you want, you can find it in Japan.</h2>
                 </div>
                 <div className="button-borders">
-                    <button className="primary-button"> GET STARTED!</button>
+                    <LinkRouter to='/Cities'>
+                        <button className="primary-button"> GET STARTED!</button>
+                    </LinkRouter>
                 </div>
 
             </div>

@@ -12,13 +12,24 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Link as LinkRouter } from 'react-router-dom';
 //import AdbIcon from '@mui/icons-material/Adb';
 
 
 import '../styles/navbar.css'
 //import logo from '../asserts/logo.png'
+//const pages = ['Home', 'Cities']
+const pages = [
+    {
+        to: '/',
+        name : 'Home'
+    },
+    {
+        to:  '/Cities',
+        name : 'Cities'
+    }
+];
 
-const pages = ['Home', 'Cities'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -77,10 +88,17 @@ const ResponsiveAppBar = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
+                            {pages.map((page, index) => (
+                                <LinkRouter to={page.to}
+                                key={index} 
+                                onClick={handleCloseNavMenu}
+                                className='underlineNone colorMenu'
+                                >
+                                    <MenuItem>
+                                        <Typography textAlign="center">{page.name}</Typography>
+                                    </MenuItem>
+                                </LinkRouter>
+
                             ))}
                         </Menu>
                     </Box>
@@ -88,14 +106,17 @@ const ResponsiveAppBar = () => {
                     {/* MEDIANO */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} />
-                        {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                        {pages.map((page, index) => (
+                            <LinkRouter to={page.to}
+                            key={index}
+                            onClick={handleCloseNavMenu}
+                            className='underlineNone '
                             >
-                                {page}
-                            </Button>
+                                <Button sx={{ my: 2, color: 'white', display: 'block' }}>
+                                {page.name}
+                                </Button>
+                            </LinkRouter>
+
                         ))}
                     </Box>
 

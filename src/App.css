@@ -3,6 +3,11 @@
     margin: 0;
 }
 
+.underlineNone {
+    text-decoration: none;
+}
+
+
 /* colores:
 
 primario ----> #A62D43 (fuccia)
