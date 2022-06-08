@@ -1,8 +1,6 @@
-import React from "react";
-
+import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 
 // Import Swiper styles
 import "swiper/css";
@@ -11,20 +9,14 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 
-import '../styles/carousel.css'
-
+import "../styles/carousel2.css";
 
 // import required modules
 import { Grid, Pagination, Navigation, Autoplay} from "swiper";
 
-
-function popularTinerary(props) {
+export default function CarouselCities(props) {
     return (
-        <div className="contenedorPopular">
-            <div className="popularMyTinerary">
-                <h2>Popular MYtineraries</h2>
-            </div>
-            <div>
+        <>
             <Swiper
                 slidesPerView={2}
                 slidesPerGroup={3}
@@ -45,12 +37,9 @@ function popularTinerary(props) {
             >
                 {props.allCities.map( (city, index) =>
                 <SwiperSlide key={index}>
-                    <img src={process.env.PUBLIC_URL+(city.image)} alt="Japan's Cities" />
+                    <img rc={process.env.PUBLIC_URL+(city.image)} alt="logo" />
                 </SwiperSlide>)}
             </Swiper>
-            </div>
-        </div >
-    )
+        </>
+    );
 }
-
-export default popularTinerary

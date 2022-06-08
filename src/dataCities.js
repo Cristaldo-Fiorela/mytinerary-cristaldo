@@ -1,77 +1,77 @@
-//import React from "react"
+import React from "react"
 
 var cities = 
 
     [{
         "id": "1",
         "name": "Tokio",
-        "image": "",
+        "image": "/assets/cities/Tokyo.png",
         "description": ""
     },
     {
         "id" : "2",
         "name": "Kioto",
-        "image": "",
+        "image": "/assets/cities/kioto.png",
         "description": ""
     },
     {
         "id" : "3",
         "name": "Nara",
-        "image": "",
+        "image": "/assets/cities/nara.png",
         "description": ""
     },
     {
         "id" : "4",
         "name": "Osaka",
-        "image": "",
+        "image": "/assets/cities/osaka.png",
         "description": ""
     },
     {
         "id" : "5",
         "name": "Yokohama",
-        "image": "",
+        "image": "/assets/cities/yokohama.png",
         "description": ""
     },
     {
         "id" : "6",
         "name": "Kobe",
-        "image": "",
+        "image": "/assets/cities/kobe.png",
         "description": ""
     },
     {
         "id" : "7",
         "name": "Nagoya",
-        "image": "",
+        "image": "/assets/cities/nagoya.png",
         "description": ""
     },
     {
         "id" : "8",
         "name": "Hiroshima",
-        "image": "",
+        "image": "/assets/cities/hiroshima.png",
         "description": ""
     },
     {
         "id" : "9",
         "name": "Nagano",
-        "image": "",
+        "image": "/assets/cities/nagano.png",
         "description": ""
     },
     {
         "id" : "10",
         "name": "Sapporo",
-        "image": "",
+        "image": "/assets/cities/sapporo.png",
         "description": ""
     },
     {
         "id" : "11",
         "name": "Fukuoka",
-        "image": "",
+        "image": "/assets/cities/fukuoka.png",
         "description": ""
     },
     {
         "id" : "12",
         "name": "Kamakura",
-        "image": "",
+        "image": "/assets/cities/kamakura.png",
         "description": ""
     }
     ]

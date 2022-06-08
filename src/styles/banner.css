@@ -21,4 +21,13 @@
     z-index: -1;
 }
 
+.logo-banner {
+    height: 15vw;
+    width: auto;
+}
 
+.slogan-h1 {
+    font-family: 'Caveat', cursive;;
+    font-size: 3rem;
+    z-index: 1;
+}

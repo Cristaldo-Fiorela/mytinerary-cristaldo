@@ -43,9 +43,11 @@ const ResponsiveAppBar = () => {
         <AppBar position="sticky" className='navbar-color'>
             <Container maxWidth="xl">
                 <Toolbar  disableGutters>
-                    <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+
+                    {/* chiquito */}
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} />
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -81,9 +83,10 @@ const ResponsiveAppBar = () => {
                             ))}
                         </Menu>
                     </Box>
-                    <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}/>
 
+                    {/* MEDIANO */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} />
                         {pages.map((page) => (
                             <Button
                                 key={page}
@@ -95,7 +98,10 @@ const ResponsiveAppBar = () => {
                         ))}
                     </Box>
 
+                    {/* MENU HAMBURGUESA */}
+
                     <Box sx={{ flexGrow: 0 }}>
+                    <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} />
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

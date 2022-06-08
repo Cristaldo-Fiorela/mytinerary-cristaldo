@@ -1,10 +1,9 @@
 import './App.css';
-import BannerSlogan from './component/BannerSlogan';
-import Carousel from './component/Carousel';
 import NavBar from './component/Navbar';
-import cities from './dataCities';
-import CallToAction from './component/CallToAction';
 import Footer from './component/Footer';
+import IndexHome from './pages/IndexHome'
+import WipCities from './pages/WipCities'
+import { Route, Routes} from 'react-router-dom'
 
 
 
@@ -12,9 +11,11 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <BannerSlogan />
-      <CallToAction/>
-      <Carousel allCities={cities} />
+      <Routes>
+        <Route path='/' element={<IndexHome/>} />
+        <Route path='/src/pages/IndexHome.jsx' element={<IndexHome/>} />
+        <Route path='/src/pages/WipCities.jsx'/>
+      </Routes>
       <Footer/>
     </div>
   );
