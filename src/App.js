@@ -13,8 +13,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<IndexHome/>} />
-        <Route path='/src/pages/IndexHome.jsx' element={<IndexHome/>} />
-        <Route path='/src/pages/WipCities.jsx'/>
+        <Route path='/Cities' element={<WipCities/>}/>
       </Routes>
       <Footer/>
     </div>

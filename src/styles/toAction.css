@@ -11,7 +11,7 @@
 
 .geisha-img {
     height: auto;
-    width: auto;
+    max-width: auto;
 }
 
 .textCallTo {
@@ -20,6 +20,7 @@
     gap: .5rem;
     font-size: 1.5rem;
 }
+
 
 /* From uiverse.io by @faizanullah1999 */
 .primary-button {
@@ -84,6 +85,7 @@
     width: fit-content;
     height: fit-content;
     align-self: flex-end;
+    margin-top: 2vw;
 }
 
 .button-borders:before {
@@ -114,3 +116,89 @@
 .shape {
     fill: #0E1822;
 }
+
+
+
+
+
+@media (max-width: 1400px) {
+    .to-action {
+        flex-wrap: nowrap;
+    }
+    .textCallTo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 5vw;
+        gap: 1rem;
+        font-size: 1.5rem;
+    }
+    .textJapan {
+        height: auto;
+        max-width: 80%;
+    }
+    .geisha-img {
+        height: auto;
+        max-width: 80%;
+    }
+    .button-borders {
+        align-self: center;
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .to-action {
+        flex-wrap: nowrap;
+    }
+    .textCallTo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 5vw;
+        gap: 1rem;
+        font-size: 1.5rem;
+    }
+    .textJapan {
+        height: auto;
+        max-width: 60%;
+    }
+    .geisha-img {
+        height: auto;
+        max-width: 80%;
+    }
+    .button-borders {
+        align-self: center;
+    }
+
+}
+
+
+
+@media (max-width: 768px) {
+    .to-action {
+        display: flex;
+        flex-direction: column;
+    }
+    .textCallTo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 5vw;
+        gap: 1rem;
+        font-size: 1.5rem;
+    }
+    .geisha-img {
+        height: auto;
+        max-width: 80%;
+    }
+    .textJapan {
+        height: auto;
+        max-width: 80%;
+    }
+    .button-borders {
+        align-self: center;
+    }
+}
+

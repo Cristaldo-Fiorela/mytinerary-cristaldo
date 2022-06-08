@@ -1,12 +1,15 @@
-.contenedorPopular {
+.popularContainer {
   height: fit-content;
   width: 100%;
   background-color: #9FBFB9;
   padding-bottom: 5vw;
+  display: flex;
+  flex-direction: column;
 }
 
 .popularMyTinerary {
   height: 20vh;
+  color: #A62D43;
   background-image: url(/public/assets/banner-favTinerary.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -16,9 +19,32 @@
   justify-content: center;
 }
 
+.containerCarousel {
+  padding-top: .5vw;
+}
 
+.carruselImages {
+  height: 40vh;
+  z-index: -1;
+}
+
+.cityName {
+  z-index: 1;
+  text-align: center;
+}
+
+.swiperTitle {
+  font-size: 2rem;
+  background-color: #285954;
+  color: #9FBFB9;
+}
 
 /* start carousel */
+
+.swiperContainer {
+  display: flex;
+  flex-direction: column;
+}
 
 
 .swiper {
@@ -29,14 +55,14 @@
 }
 
 .mySwiper {
-  height: 70vh;
+  height: 50vw;
+  width: 80vw;
 }
 
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
   height: calc((100% - 30px) / 2) !important;
 
   /* Center slide text vertically */

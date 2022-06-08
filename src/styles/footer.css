@@ -24,3 +24,45 @@
     display: flex;
     gap: 3rem;
 }
+
+.socialMedia {
+    display: flex;
+    gap: 2rem;
+}
+
+
+
+@media (max-width: 1200px) {
+    .copyrg {
+        height: fit-content;
+        padding-top: 1vw;
+        padding-bottom: 1vw;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .copyrg {
+        height: fit-content;
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+    }
+}
+
+@media (max-width: 576px) {
+    .footerNav {
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 5vw;
+        padding-bottom: 5vw;
+    }
+    .copyrg {
+        height: fit-content;
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+    }
+}

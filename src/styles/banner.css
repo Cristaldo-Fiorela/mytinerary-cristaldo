@@ -31,3 +31,62 @@
     font-size: 3rem;
     z-index: 1;
 }
+
+
+@media (max-width: 1440px) {
+    .slogan-h1 {
+        max-width: 70%;
+        font-size: 3rem;
+        text-align: center;
+    }
+    .logo-banner {
+        height: 13rem;
+        max-width: 100%;
+        margin-bottom: 2vw;
+    }
+}
+
+
+
+@media (max-width: 1200px) {
+    .slogan-h1 {
+        max-width: 80%;
+        font-size: 3rem;
+        text-align: center;
+    }
+    .logo-banner {
+        height: 13rem;
+        max-width: 100%;
+        margin-bottom: 2vw;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .slogan-h1 {
+        max-width: 80%;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    .logo-banner {
+        height: 25vw;
+        max-width: 100%;
+        margin-bottom: 5vw;
+    }
+}
+
+@media (max-width: 576px) {
+    .slogan-h1 {
+        max-width: 80%;
+        font-size: 2rem;
+        text-align: center;
+    }
+    .logo-banner {
+        height: 10rem;
+        max-width: 100%;
+        margin-bottom: 10vw;
+    }
+}
+
+

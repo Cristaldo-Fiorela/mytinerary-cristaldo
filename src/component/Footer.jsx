@@ -1,19 +1,32 @@
+import { Button } from "@mui/material";
 import React from "react";
 import '../styles/footer.css'
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import GitHubIcon from '@mui/icons-material/GitHub';
 //import logoColor from '../asserts/logoMyTineraryColor.png'
+
 
 function Footer() {
     return (
         <>
         <div className="footerNav">
-            <div>
-                <p>REDES SOCIELES</p>
+            <div className="socialMedia">
+                <Button href="https://www.facebook.com/fiio.cristaldo/" style={{color: "#F2F2F2"}}>
+                    <FacebookIcon fontSize="large" style={{color: "#F2F2F2"}}/>
+                </Button>
+                <Button href="https://www.instagram.com/fio.cristaldo/" style={{color: "#F2F2F2"}}>
+                    <InstagramIcon fontSize="large" style={{color: "#F2F2F2"}}/>
+                </Button>
+                <Button href="https://github.com/Cristaldo-Fiorela" style={{color: "#F2F2F2"}}>
+                    <GitHubIcon fontSize="large" style={{color: "#F2F2F2"}}/>
+                </Button>
             </div>
-            <nav className="navFooter">
-                <a href="-">Home</a>
-                <a href="-">Cities</a>
-            </nav>
-                        <img src={process.env.PUBLIC_URL+"/assets/logoMyTineraryColor.png"} alt="LOGO" style={{height: "10rem"}} />
+            <div className="navFooter">
+                <Button style={{color: "#F2F2F2"}}>Home</Button>
+                <Button  style={{color: "#F2F2F2"}}>Cities</Button>
+            </div>
+            <img src={process.env.PUBLIC_URL+"/assets/logoMyTineraryColor.png"} className="footerLogo" alt="LOGO" style={{height: "10rem"}} />
         </div>
         <div className="copyrg">
             <p> Copyright © 2022 Cristaldo Fiorela</p>

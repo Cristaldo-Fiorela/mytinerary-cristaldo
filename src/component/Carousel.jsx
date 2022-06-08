@@ -15,39 +15,42 @@ import '../styles/carousel.css'
 
 
 // import required modules
-import { Grid, Pagination, Navigation, Autoplay} from "swiper";
+import { Grid, Pagination, Navigation, Autoplay } from "swiper";
 
 
 function popularTinerary(props) {
     return (
-        <div className="contenedorPopular">
+        <div className="popularContainer">
             <div className="popularMyTinerary">
-                <h2>Popular MYtineraries</h2>
+                <h2 className="slogan-h1">Popular MyTineraries</h2>
             </div>
-            <div>
-            <Swiper
-                slidesPerView={2}
-                slidesPerGroup={3}
-                grid={{
-                    rows: 2,
-                }}
-                spaceBetween={30}
-                autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                }}
-                pagination={{
-                    clickable: true,
-                }}
-                navigation={true}
-                modules={[Grid, Pagination, Navigation, Autoplay]}
-                className="mySwiper"
-            >
-                {props.allCities.map( (city, index) =>
-                <SwiperSlide key={index}>
-                    <img src={process.env.PUBLIC_URL+(city.image)} alt="Japan's Cities" />
-                </SwiperSlide>)}
-            </Swiper>
+            <div className="containerCarousel">
+                <Swiper
+                    slidesPerView={2}
+                    slidesPerGroup={2}
+                    grid={{
+                        rows: 2,
+                    }}
+                    spaceBetween={30}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    navigation={true}
+                    modules={[Grid, Pagination, Navigation, Autoplay]}
+                    className="mySwiper"
+                >
+                    {props.allCities.map((city, index) =>
+                        <SwiperSlide key={index}>
+                            <div className="swiperContainer">
+                                <h3 className="swiperTitle">{(city.name)}</h3>
+                                <img src={process.env.PUBLIC_URL +(city.image)} className="carruselImages" alt="Japan's Cities" />
+                            </div>
+                        </SwiperSlide>)}
+                </Swiper>
             </div>
         </div >
     )

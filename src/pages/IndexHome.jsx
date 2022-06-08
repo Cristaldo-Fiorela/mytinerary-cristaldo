@@ -6,7 +6,7 @@ import CallToAction from '../component/CallToAction';
 
 
 
-function Home() {
+function IndexHome() {
     return (
         <div>
             <BannerSlogan />
@@ -16,4 +16,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default IndexHome;
