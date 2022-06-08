@@ -14,7 +14,7 @@ function MessageCities() {
                 <h1>Page Under Construction</h1>
                 <h2>Sorry for the inconvenience.</h2>
             </div>
-            <img src={process.env.PUBLIC_URL + "/assets/under-construction.png"} alt="messageUnderConstruction" />
+            <img className="geishaMessage" src={process.env.PUBLIC_URL + "/assets/under-construction.png"} alt="messageUnderConstruction" />
         </div>
         </>
     )

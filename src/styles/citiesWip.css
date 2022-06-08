@@ -22,3 +22,63 @@
     font-size: 1.5rem;
     gap: 1rem;
 }
+
+.geishaMessage {
+    max-width: 100%;
+    height: auto;
+}
+
+
+@media (max-width: 1440px) {
+    .search {
+        height: 4vw;
+    }
+    .containerConstruction{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .search {
+        height: 6vw;
+    }
+    .containerConstruction{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 786px) {
+    .search {
+        height: 10vw;
+    }
+    .containerConstruction{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .search {
+        height: 15vw;
+    }
+    .containerConstruction{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
