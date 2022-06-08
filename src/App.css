@@ -9,6 +9,27 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #9FBFB9 ;
+}
+
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #285954;
+
+}
+
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #A62D43;
+}
+
 
 /* color:
 
