@@ -1,9 +1,14 @@
+.containerCitiesBody {
+    height: 100vh;
+}
+
+
 .containerConstruction {
     background-color: #F2F2F2;
     font-family: 'Caveat', cursive;
     font-size: 2rem;
     color: #A62D43;
-    height: 100vh;
+    height: 100%;
     width: auto;
     display: flex;
     flex-direction: row;

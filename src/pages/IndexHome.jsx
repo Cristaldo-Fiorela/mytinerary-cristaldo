@@ -8,11 +8,11 @@ import CallToAction from '../component/CallToAction';
 
 function IndexHome() {
     return (
-        <div>
+        <>
             <BannerSlogan />
             <CallToAction />
             <Carousel allCities={cities} />
-        </div>
+        </>
     );
 }
 

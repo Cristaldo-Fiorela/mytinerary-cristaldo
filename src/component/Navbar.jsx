@@ -32,8 +32,8 @@ const pages = [
 const settings = ['Settings', 'LogIn'];
 
 const ResponsiveAppBar = () => {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElNav, setAnchorElNav] = React.useState(null); // componente funcional con hook
+    const [anchorElUser, setAnchorElUser] = React.useState(null); // escuchar el cambio de estado, el valor "null" hace referencia al valor q va a pasar
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -42,11 +42,11 @@ const ResponsiveAppBar = () => {
         setAnchorElUser(event.currentTarget);
     };
 
-    const handleCloseNavMenu = () => {
+    const handleCloseNavMenu = () => { 
         setAnchorElNav(null);
     };
 
-    const handleCloseUserMenu = () => {
+    const handleCloseUserMenu = () => { 
         setAnchorElUser(null);
     };
 

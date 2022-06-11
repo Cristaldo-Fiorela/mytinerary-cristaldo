@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import NavBar from './component/Navbar';
 import Footer from './component/Footer';
 import IndexHome from './pages/IndexHome'
