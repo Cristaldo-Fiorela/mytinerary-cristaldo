@@ -5,10 +5,18 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { Link as LinkRouter } from "react-router-dom";
-//import logoColor from '../asserts/logoMyTineraryColor.png'
 
 
 function Footer() {
+
+    const ScrollToTop = () =>  {
+        window.scroll({
+            top: 0,
+            behavior: "smooth",
+            left:0
+        })
+    }
+
     return (
         <>
         <div className="footerNav">
@@ -25,11 +33,11 @@ function Footer() {
             </div>
             <div className="navFooter">
                 <LinkRouter to= './'>
-                    <Button  style={{color: "#F2F2F2"}}>Home</Button>
+                    <Button onClick={ScrollToTop}  style={{color: "#F2F2F2"}}>Home</Button>
                 </LinkRouter>
 
                 <LinkRouter to= './Cities'>
-                    <Button  style={{color: "#F2F2F2"}}>Cities</Button>
+                    <Button onClick={ScrollToTop}  style={{color: "#F2F2F2"}}>Cities</Button>
                 </LinkRouter>
                 
             </div>

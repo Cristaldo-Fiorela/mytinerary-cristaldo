@@ -6,6 +6,14 @@ import '../styles/toAction.css'
 
 
 function CallToAction() {
+    
+    const ScrollToTop = () =>  {
+        window.scroll({
+            top: 0,
+            behavior: "smooth",
+            left:0
+        })
+    }
     return (
         <div className="to-action">
             <img src={process.env.PUBLIC_URL + "/assets/geisha.png"} alt="geisha" className="geisha-img" />
@@ -19,7 +27,7 @@ function CallToAction() {
                 </div>
                 <div className="button-borders">
                     <LinkRouter to='/Cities'>
-                        <button className="primary-button"> GET STARTED!</button>
+                        <button  onClick={ScrollToTop} className="primary-button"> GET STARTED!</button>
                     </LinkRouter>
                 </div>
 

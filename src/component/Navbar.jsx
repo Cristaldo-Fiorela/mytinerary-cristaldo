@@ -32,6 +32,16 @@ const pages = [
 const settings = ['Settings', 'LogIn'];
 
 const ResponsiveAppBar = () => {
+
+    
+    const ScrollToTop = () =>  {
+        window.scroll({
+            top: 0,
+            behavior: "smooth",
+            left:0
+        })
+    }
+
     const [anchorElNav, setAnchorElNav] = React.useState(null); // componente funcional con hook
     const [anchorElUser, setAnchorElUser] = React.useState(null); // escuchar el cambio de estado, el valor "null" hace referencia al valor q va a pasar
 
@@ -94,7 +104,7 @@ const ResponsiveAppBar = () => {
                                 className='underlineNone colorMenu'
                                 >
                                     <MenuItem>
-                                        <Typography textAlign="center">{page.name}</Typography>
+                                        <Typography onClick={ScrollToTop}  textAlign="center">{page.name}</Typography>
                                     </MenuItem>
                                 </LinkRouter>
 
@@ -111,7 +121,7 @@ const ResponsiveAppBar = () => {
                             onClick={handleCloseNavMenu}
                             className='underlineNone '
                             >
-                                <Button sx={{ my: 2, color: 'white', display: 'block' }}>
+                                <Button onClick={ScrollToTop} sx={{ my: 2, color: 'white', display: 'block' }}>
                                 {page.name}
                                 </Button>
                             </LinkRouter>
