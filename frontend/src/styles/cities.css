@@ -66,3 +66,32 @@ h5 {
     text-shadow: 2px 2px  #F2F2F2;
     padding: 0 !important;
 }
+
+
+
+@media (max-width: 1200px) {
+    .search {
+        height: 6vw;
+    }
+}
+
+
+@media (max-width: 786px) {
+    .search {
+        height: 10vw;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .search {
+        height: 15vw;
+    }
+    .Card {
+        width: 90%;
+        height: 40vw;
+    }
+    h5 {
+        font-size: 15vw !important;
+    }
+}
