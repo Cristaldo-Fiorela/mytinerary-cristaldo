@@ -1,0 +1,68 @@
+.search {
+    height: 3vw;
+    background-color: #9FBFB9;
+    color: #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    font-size: 1.5rem;
+    gap: 1rem;
+}
+
+
+.cardContainer {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2vw;
+    padding-top: 1rem ;
+    padding-bottom: 1rem;
+    background-color: #F2F2F2;
+
+}
+
+.Card {
+    width: 40vw;
+    height: 20vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+.Card:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+}
+
+h5 {
+    font-size: 6vw !important;
+    font-weight: bolder;
+    font-family: 'Caveat', cursive !important;
+}
+
+.cardContent {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: #2859544f;
+    color: #F2F2F2;
+    text-shadow: 2px 2px black;
+    padding: 0 !important;
+}
+
+.cardContent:hover {
+    background-color: transparent;
+    color: #A62D43;
+    text-shadow: 2px 2px  #F2F2F2;
+    padding: 0 !important;
+}
