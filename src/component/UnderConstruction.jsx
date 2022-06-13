@@ -2,7 +2,7 @@ import React from "react";
 
 import "../styles/citiesWip.css"
 
-function MessageCities() {
+function UnderConstruction() {
     return (
         <div className="containerCitiesBody">
         <form className="search">
@@ -20,4 +20,4 @@ function MessageCities() {
     )
 }
 
-export default MessageCities
+export default UnderConstruction

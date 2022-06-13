@@ -2,7 +2,7 @@ import './styles/App.css';
 import NavBar from './component/Navbar';
 import Footer from './component/Footer';
 import IndexHome from './pages/IndexHome'
-import WipCities from './pages/WipCities'
+import CitiesHome from '../src/pages/Cities'
 import { Route, Routes} from 'react-router-dom'
 import ScrollToTop from 'react-scroll-to-top';
 import ArrowCircleUpRoundedIcon from '@mui/icons-material/ArrowCircleUpRounded';
@@ -24,7 +24,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<IndexHome/>} />
-        <Route path='/Cities' element={<WipCities/>}/>
+        <Route path='/Cities' element={<CitiesHome/>}/>
       </Routes>
       <Footer/>
       <ScrollToTop 
