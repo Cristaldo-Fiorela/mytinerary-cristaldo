@@ -1,5 +1,5 @@
 
-const Cities = require('../models/cities')
+const City = require('../models/city')
 
 const citiesControllers = { 
 
@@ -12,7 +12,7 @@ const citiesControllers = {
     
     // parte de prueba "try" (intento) catch (atrapa errores)
         try {
-            cities = await Cities.find()
+            cities = await City.find()
         } catch (err) {error = err} // si cacheo el error puedo hacer cosas con el error
     
     // parte de la respuesta a la segunda parte de la funcion -> try catch
@@ -29,7 +29,7 @@ const citiesControllers = {
         let error = null
 
         try {
-            city = await Cities.findOne({_id:id})
+            city = await City.findOne({_id:id})
         } catch(err) {
             error = err
             console.log(error)
@@ -47,7 +47,7 @@ const citiesControllers = {
         let error = null
 
         try{
-            city = await new Cities({
+            city = await new City({
                 name:name,
                 image:image,
                 description: description
@@ -68,10 +68,10 @@ const citiesControllers = {
         let error = null
 
         try {
-            cityModified = await Cities.findOneAndUpdate({ _id:id}, city, { new: true })
+            cityModified = await City.findOneAndUpdate({ _id:id}, city, { new: true })
         } catch (err) {error = err}
 
-        res.jason({
+        res.json({
             response: error ? 'ERROR' : cityModified,
             success: error ? false : true,
             error: error
@@ -84,7 +84,7 @@ const citiesControllers = {
         let error = null
 
         try {
-            city = await Cities.findOneAndDelete({_id: id})
+            city = await City.findOneAndDelete({_id: id})
         } catch (err) { error = err }
 
         res.json({
@@ -92,7 +92,29 @@ const citiesControllers = {
             success: error ? false : true,
             error : error
         })
-    }
+    },
+
+    multiplesCities: async (req, res) => {
+        let city = []
+        const data = req.body.data //almaceno en la constante data la informacion que le pedi al body
+        let error = null
+
+        try {
+            data.map(async (item) => {
+                await new City({
+                    name: item.name,
+                    image: item.image,
+                    description: item.description
+                }).save()
+            })
+        } catch (err) { error = err }
+        city = await City.find()
+        res.json({
+            response: error ? 'ERROR' : city,
+            success: error ? false : true,
+            error: error
+        })
+    },
     
 }
 

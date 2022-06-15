@@ -1,4 +1,4 @@
-import React from "react";
+import { React} from "react";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,7 +18,9 @@ import '../styles/carousel.css'
 import { Grid, Pagination, Navigation, Autoplay } from "swiper";
 
 
-function popularTinerary(props) {
+
+function PopularTinerary(props) {
+
     return (
         <div className="popularContainer">
             <div className="popularMyTinerary">
@@ -58,4 +60,4 @@ function popularTinerary(props) {
     )
 }
 
-export default popularTinerary
+export default PopularTinerary

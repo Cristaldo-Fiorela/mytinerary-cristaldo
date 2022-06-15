@@ -1,10 +1,28 @@
 .cityImage {
     height: 50vh;
-    width: 50vw;
+    width: 60%;
 }
 .containerDetails {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* From uiverse.io by @SharpTH */
+.card {
+    cursor: pointer;
+    width: 190px;
+    height: 254px;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 255, .2);
+    transition: all .2s;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+
+.card:hover {
+    box-shadow: -12px 12px 2px -1px rgba(0, 0, 255, .2);
 }
