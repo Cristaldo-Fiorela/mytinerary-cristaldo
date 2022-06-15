@@ -3,6 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import dataCities from '../dataCities';
+import { Link as LinkRouter } from 'react-router-dom';
 
 
 
@@ -29,25 +30,31 @@ function DisplayCardCities() {
                 type="text" 
                 placeholder="Search..." 
                 id="search"
-                onKeyUp= {(evento) =>{
-                    setSearch(evento.target.value)
+                onKeyUp= {(event) =>{
+                    setSearch(event.target.value)
                 }}
                 />
             </form>
-            <div className='cardContainer'>
-                {cities.map((city, index) =>
-                    <Card
-                        sx={{ backgroundImage: `url(${process.env.PUBLIC_URL + (city.image)})` }}
-                        key={index}
-                        className="Card overlay"
+            <div className=' cardContainer'>
+            {cities.map((city, index) =>
+                <Card
+                    sx={{ backgroundImage: `url(${process.env.PUBLIC_URL + (city.image)})` }}
+                    key={index}
+                    className="Card overlay"
+                >
+                    <LinkRouter 
+                    className='underlineNone'
+                    to={`/Cities/${city.id}`}
+                    key={city.id}
                     >
                         <CardContent className='cardContent'>
                             <Typography gutterBottom variant="h5">
                                 {city.name}
                             </Typography>
                         </CardContent>
-                    </Card>
-                )}
+                    </LinkRouter>
+                </Card>
+            )}
             </div>
         </>
     );

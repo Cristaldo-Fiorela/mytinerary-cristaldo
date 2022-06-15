@@ -1,12 +1,16 @@
 require('dotenv').config() 
 require('./config/config') //llamo a configuracion de mongo
 
-
-
 const express = require ('express')
+const Router = require('./routes/citiesRoutes')
+const PORT = 4000
+
 const app = express()
 
-const PORT = 4000
+
+// Middlewares
+app.use(express.json()) //transporta la data a front convertido en json
+app.use('/api', Router) 
 
 app.set ('port', PORT)
 

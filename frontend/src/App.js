@@ -7,8 +7,7 @@ import { Route, Routes} from 'react-router-dom'
 import ScrollToTop from 'react-scroll-to-top';
 import ArrowCircleUpRoundedIcon from '@mui/icons-material/ArrowCircleUpRounded';
 import { useEffect } from 'react';
-
-
+import Details from './component/Details';
 
 
 function App() {
@@ -25,6 +24,7 @@ function App() {
       <Routes>
         <Route path='/' element={<IndexHome/>} />
         <Route path='/Cities' element={<CitiesHome/>}/>
+        <Route path='/Cities/:idCities' element={ <Details />} />
       </Routes>
       <Footer/>
       <ScrollToTop 
