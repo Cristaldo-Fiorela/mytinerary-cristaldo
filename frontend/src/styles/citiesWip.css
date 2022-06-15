@@ -4,7 +4,6 @@
 
 
 .containerConstruction {
-    background-color: #F2F2F2;
     font-family: 'Caveat', cursive;
     font-size: 2rem;
     color: #A62D43;
@@ -31,6 +30,7 @@
 .geishaMessage {
     max-width: 100%;
     height: auto;
+    padding-top: 1.5rem;
 }
 
 

@@ -1,18 +1,27 @@
 import React from "react";
+import { Link as LinkRouter } from "react-router-dom";
+
 
 import "../styles/citiesWip.css"
 
 function UnderConstruction() {
+    
+    const ScrollToTop = () =>  {
+        window.scroll({
+            top: 0,
+            behavior: "smooth",
+            left:0
+        })
+    }
     return (
         <div className="containerCitiesBody">
-        <form className="search">
-            <label>Search:</label>
-            <input type="text" placeholder="Search..." disabled></input>
-        </form>
         <div className="containerConstruction">
             <div>
                 <h1>Page Under Construction</h1>
                 <h2>Sorry for the inconvenience.</h2>
+                <LinkRouter to='/Cities'>
+                    <button onClick={ScrollToTop} className="learn-more">Back to Cities</button>
+                </LinkRouter>
             </div>
             <img className="geishaMessage" src={process.env.PUBLIC_URL + "/assets/under-construction.png"} alt="messageUnderConstruction" />
         </div>

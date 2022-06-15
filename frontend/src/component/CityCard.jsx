@@ -2,9 +2,9 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-//import dataCities from '../dataCities';
 import { Link as LinkRouter } from 'react-router-dom';
 import axios from 'axios'
+import UnderConstruction  from '../component/UnderConstruction'
 
 
 
@@ -12,6 +12,14 @@ import '../styles/cities.css'
 import { useEffect } from 'react';
 
 function DisplayCardCities() {
+
+    const ScrollToTop = () =>  {
+        window.scroll({
+            top: 0,
+            behavior: "smooth",
+            left:0
+        })
+    }
 
     const [dataCities, setDataCities] = React.useState([]) //declaro const donde voy a guardar mi data de la API
     const [search, setSearch] = React.useState(' ')
@@ -40,12 +48,16 @@ function DisplayCardCities() {
                     }}
                 />
             </form>
+
+
             <div className=' cardContainer'>
-                {cityFiltered.map((city, index) =>
+                {cityFiltered.length > 0 ? (
+                cityFiltered.map((city, index) =>
                     <Card
                         sx={{ backgroundImage: `url(${process.env.PUBLIC_URL + (city.image)})` }}
                         key={index}
                         className="Card overlay"
+                        onClick={ScrollToTop}
                     >
                         <LinkRouter
                             className='underlineNone'
@@ -59,7 +71,9 @@ function DisplayCardCities() {
                             </CardContent>
                         </LinkRouter>
                     </Card>
-                )}
+                    )
+                ) : (< UnderConstruction />)
+                }
             </div>
         </>
     );
