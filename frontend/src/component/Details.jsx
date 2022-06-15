@@ -1,20 +1,11 @@
 import { React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { Link as LinkRouter } from "react-router-dom";
 import UnderConstruction from "./UnderConstruction";
 
 import '../styles/details.css'
 
 function Details() {
-
-    const ScrollToTop = () =>  {
-        window.scroll({
-            top: 0,
-            behavior: "smooth",
-            left:0
-        })
-    }
 
     const [dataCities, setDataCities] = useState([]) //declaro const donde voy a guardar mi data de la API
     const { idCities } = useParams()
@@ -25,7 +16,7 @@ function Details() {
             .then(res => { //una vez traido, defino la respuesta
                 setDataCities(res.data.response)
             })
-    }, [])
+    },[idCities])
 
     return (
         <>

@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Link as LinkRouter } from 'react-router-dom';
 import axios from 'axios'
-import UnderConstruction  from '../component/UnderConstruction'
+import SearchError from './SearchError';
 
 
 
@@ -49,7 +49,6 @@ function DisplayCardCities() {
                 />
             </form>
 
-
             <div className=' cardContainer'>
                 {cityFiltered.length > 0 ? (
                 cityFiltered.map((city, index) =>
@@ -72,7 +71,7 @@ function DisplayCardCities() {
                         </LinkRouter>
                     </Card>
                     )
-                ) : (< UnderConstruction />)
+                ) : (< SearchError />)
                 }
             </div>
         </>
