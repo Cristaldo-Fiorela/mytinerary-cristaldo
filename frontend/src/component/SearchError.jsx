@@ -25,7 +25,7 @@ function SearchError () {
 
             <CardContent className='cardContent'>
                 <Typography gutterBottom variant="h5">
-                We couldn't find any city.
+                    We couldn't find any city.
                 </Typography>
             </CardContent>
         </Card>

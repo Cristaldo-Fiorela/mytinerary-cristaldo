@@ -7,8 +7,10 @@ import '../styles/details.css'
 
 function Details() {
 
-    const [dataCities, setDataCities] = useState([]) //declaro const donde voy a guardar mi data de la API
     const { idCities } = useParams()
+    
+    const [dataCities, setDataCities] = useState([]) //declaro const donde voy a guardar mi data de la API
+
 
     useEffect(() => { //Acepta una función que contiene código imperativo, posiblemente código efectivo.
 

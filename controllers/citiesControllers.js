@@ -86,7 +86,7 @@ const citiesControllers = {
         try {
             city = await City.findOneAndDelete({_id: id})
         } catch (err) { error = err }
-
+        
         res.json({
             response: error ? 'ERROR' : city,
             success: error ? false : true,
