@@ -28,9 +28,9 @@ function App() {
       </Routes>
       <Footer/>
       <ScrollToTop 
-      smooth 
+      smooth
       component={ < ArrowCircleUpRoundedIcon sx={{color: "#F2F2F2", fontSize: "4.5rem", backgroundColor: "#F27E7E", borderRadius:"100%"}} />} 
-      style={{backgroundColor: "transparent", boxShadow: "none" }}
+      style={{backgroundColor: "transparent", boxShadow: "none", paddingBottom: "4.4rem" }}
       />
     </div>
   );
