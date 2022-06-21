@@ -1,24 +1,25 @@
 import { React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import UnderConstruction from "./UnderConstruction";
+import TineraryCard from "./Tinerary";
+import RecipeReviewCard from "./Tinerary2";
 
 import '../styles/details.css'
 
 function Details() {
 
-    const { idCities } = useParams()
+    const { idCity } = useParams()
     
     const [dataCities, setDataCities] = useState([]) //declaro const donde voy a guardar mi data de la API
 
 
     useEffect(() => { //Acepta una función que contiene código imperativo, posiblemente código efectivo.
 
-        axios.get(`http://localhost:4000/api/cities/${idCities}`) //pedimos traer nuestra api con axios que es una libreria HTTP (protocolo de transferencia de hipertexto)
+        axios.get(`http://localhost:4000/api/cities/${idCity}`) //pedimos traer nuestra api con axios que es una libreria HTTP (protocolo de transferencia de hipertexto)
             .then(res => { //una vez traido, defino la respuesta
                 setDataCities(res.data.response)
             })
-    },[idCities])
+    },[idCity])
 
     return (
         <>
@@ -28,8 +29,9 @@ function Details() {
                 </div>
             </div>
             <div className="containerDetails">
-                <div className="diamondShape">
-                    <UnderConstruction/>
+                <div>
+                    <TineraryCard/>
+                    <RecipeReviewCard/>
                 </div>
             </div>
         </>

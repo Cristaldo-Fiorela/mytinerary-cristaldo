@@ -1,4 +1,4 @@
-require('dotenv').config() 
+require('dotenv').config()  //libreria dotenv
 require('./config/config') //llamo a configuracion de mongo
 
 const express = require ('express')

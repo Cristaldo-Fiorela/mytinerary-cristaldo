@@ -1,4 +1,6 @@
 import { React} from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,7 +21,18 @@ import { Grid, Pagination, Navigation, Autoplay } from "swiper";
 
 
 
-function PopularTinerary(props) {
+function PopularTinerary() {
+
+    const [dataCities, setDataCities] = useState([]) //declaro const donde voy a guardar mi data de la API
+
+
+    useEffect(() => { //Acepta una función que contiene código imperativo, posiblemente código efectivo.
+
+        axios.get('http://localhost:4000/api/cities') //pedimos traer nuestra api con axios que es una libreria HTTP (protocolo de transferencia de hipertexto)
+            .then(res => { //una vez traido, defino la respuesta
+                setDataCities(res.data.response.cities)
+            })
+    },[])
 
     return (
         <div className="popularContainer">
@@ -45,7 +58,7 @@ function PopularTinerary(props) {
                     modules={[Grid, Pagination, Navigation, Autoplay]}
                     className="mySwiper"
                 >
-                    {props.allCities.map((city, index) =>
+                    {dataCities.map((city, index) =>
                         <SwiperSlide key={index}
                             style={{ backgroundImage: `url(${process.env.PUBLIC_URL + (city.image)})` }}
                             className="carruselImages"

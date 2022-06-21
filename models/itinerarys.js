@@ -1,4 +1,4 @@
-//const mongoose = require ('mongoose') // se conecta a mongo 
+const mongoose = require ('mongoose') // se conecta a mongo 
 
 
 const itinerarySchema = new mongoose.Schema({
@@ -13,4 +13,4 @@ const itinerarySchema = new mongoose.Schema({
 })
 
 const Itinerary =  mongoose.model('itinerary', itinerarySchema) 
-module.exports = Itinerary
+module.exports = Itinerary // se exporta en los controladores

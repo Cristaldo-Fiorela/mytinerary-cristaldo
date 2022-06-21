@@ -24,7 +24,7 @@ function App() {
       <Routes>
         <Route path='/' element={<IndexHome/>} />
         <Route path='/Cities' element={<CitiesHome/>}/>
-        <Route path='/Cities/:idCities' element={ <Details />} />
+        <Route path='/Cities/:idCity' element={ <Details />} />
       </Routes>
       <Footer/>
       <ScrollToTop 
