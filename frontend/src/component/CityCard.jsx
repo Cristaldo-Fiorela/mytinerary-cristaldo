@@ -3,15 +3,17 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Link as LinkRouter } from 'react-router-dom';
-import axios from 'axios'
 import SearchError from './SearchError';
+import { connect } from 'react-redux';
+import citiesActions from "../redux/actions/citiesActions";
+
 
 
 
 import '../styles/cities.css'
 import { useEffect } from 'react';
 
-function DisplayCardCities() {
+function DisplayCardCities(props) {
 
     const ScrollToTop = () =>  {
         window.scroll({
@@ -21,18 +23,13 @@ function DisplayCardCities() {
         })
     }
 
-    const [dataCities, setDataCities] = React.useState([]) //declaro const donde voy a guardar mi data de la API
     const [search, setSearch] = React.useState(' ')
     
     useEffect(() => { //Acepta una función que contiene código imperativo, posiblemente código efectivo.
-
-        axios.get('http://localhost:4000/api/cities') //pedimos traer nuestra api con axios que es una libreria HTTP (protocolo de transferencia de hipertexto)
-            .then(res => { //una vez traido, defino la respuesta
-                setDataCities(res.data.response.cities)
-            })
+        props.getCities()
     },[])
 
-    let cityFiltered = dataCities.filter(city => city.name.toLowerCase().startsWith(search.trim().toLowerCase()))
+    let cityFiltered = props.cities.filter(city => city.name.toLowerCase().startsWith(search.trim().toLowerCase()))
 
 
     return (
@@ -78,4 +75,16 @@ function DisplayCardCities() {
     );
 }
 
-export default DisplayCardCities;
+const mapDispatchProps = {
+    getCities: citiesActions.getCities,
+}
+
+const mapStateToProps = (state)  => {
+    return{
+        cities: state.citiesReducer.cities,
+        aux: state.citiesReducer.aux
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchProps) (DisplayCardCities);

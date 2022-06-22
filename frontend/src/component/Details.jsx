@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import TineraryCard from "./Tinerary";
-import RecipeReviewCard from "./Tinerary2";
+//import RecipeReviewCard from "./Tinerary2";
 
 import '../styles/details.css'
 
@@ -31,7 +31,6 @@ function Details() {
             <div className="containerDetails">
                 <div>
                     <TineraryCard/>
-                    <RecipeReviewCard/>
                 </div>
             </div>
         </>
