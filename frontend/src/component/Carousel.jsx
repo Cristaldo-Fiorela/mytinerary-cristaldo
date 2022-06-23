@@ -2,6 +2,8 @@ import { React} from "react";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
+import { useSelector } from 'react-redux';
+
 
 
 // Import Swiper React components
@@ -22,12 +24,14 @@ import { Grid, Pagination, Navigation, Autoplay } from "swiper";
 
 
 
-function PopularTinerary( props) {
+function PopularTinerary() {
 
 
-    useEffect(() => { //Acepta una función que contiene código imperativo, posiblemente código efectivo.
-        props.getCities()
-    },[])
+    // useEffect(() => { //Acepta una función que contiene código imperativo, posiblemente código efectivo.
+    //     props.getCities()
+    // },[])
+    const cities = useSelector(store => store.citiesReducer.cities)
+
 
     return (
         <div className="popularContainer">
@@ -53,7 +57,7 @@ function PopularTinerary( props) {
                     modules={[Grid, Pagination, Navigation, Autoplay]}
                     className="mySwiper"
                 >
-                    {props.cities.map((city, index) =>
+                    {cities.map((city, index) =>
                         <SwiperSlide key={index}
                             style={{ backgroundImage: `url(${process.env.PUBLIC_URL + (city.image)})` }}
                             className="carruselImages"

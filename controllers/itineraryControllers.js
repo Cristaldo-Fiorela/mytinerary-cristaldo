@@ -42,7 +42,7 @@ const itineraryControllers = {
     },
 
     addItinerary:async (req,res) => {
-        const {name, userName, userPhoto, price, duration, hashtags, like, activities}=req.body.data
+        const {name, userName, userPhoto, price, duration, hashtags, like, activities, idCity}=req.body.data
         let itinerary
         let error = null
 
@@ -55,7 +55,8 @@ const itineraryControllers = {
                 duration: duration,
                 hashtags: hashtags,
                 like: like,
-                activities: activities
+                activities: activities,
+                idCity: idCity
             }).save()
         }catch(err){error = err}
 
@@ -73,7 +74,7 @@ const itineraryControllers = {
         let error = null
 
         try {
-            itineraryModified = await City.findOneAndUpdate({ _id:id}, city, { new: true })
+            itineraryModified = await Itinerary.findOneAndUpdate({ _id:id}, itinerary, { new: true })
         } catch (err) {error = err}
 
         res.json({
@@ -114,7 +115,9 @@ const itineraryControllers = {
                     duration: item.duration,
                     hashtags: item.hashtags,
                     like: item.like,
-                    activities: item.activities
+                    activities: item.activities,
+                    idCity: item.idCity
+
                 }).save()
             })
         } catch (err) { error = err }
@@ -125,7 +128,23 @@ const itineraryControllers = {
             error: error
         })
     },
-    
+
+    getItineraryByIdCity: async (req,res) => {
+        const id = req.params.id
+        let itineraries
+        let error = null
+        try {
+            itineraries = await Itinerary.find({ idCity : id })
+        } catch (err) {
+            error = err
+        }
+        res.json({
+            response: error ? 'ERROR' : itineraries,
+            success: error ? false : true,
+            error: error
+        })
+    }
+
 }
 
 module.exports = itineraryControllers

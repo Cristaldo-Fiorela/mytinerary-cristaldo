@@ -8,10 +8,19 @@ import ScrollToTop from 'react-scroll-to-top';
 import ArrowCircleUpRoundedIcon from '@mui/icons-material/ArrowCircleUpRounded';
 import { useEffect } from 'react';
 import Details from './component/Details';
+import { useDispatch} from 'react-redux'
+import citiesActions from './redux/actions/citiesActions';
 
 
 function App() {
   
+  const dispatch = useDispatch() 
+
+  useEffect(() => {
+    dispatch(citiesActions.getCities())
+  },[])
+  
+
   useEffect(() =>{
     setTimeout(()=>{
       window.scrollTo(0, 0)
