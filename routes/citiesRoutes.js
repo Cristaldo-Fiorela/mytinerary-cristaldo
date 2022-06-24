@@ -20,7 +20,7 @@ Router.route('/cities/:id')
 Router.route("/multiplesCities")
 .post(multiplesCities)
 
-////////////////////////////////////////////////////////////
+///////////////////////ITINERARIES ROUTE/////////////////////////////////////
 
 Router.route('/itinerary')
 .get(getItinerary)

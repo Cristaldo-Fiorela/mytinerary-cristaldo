@@ -1,0 +1,167 @@
+
+.cardTinerary {  
+    display: flex;
+    flex-direction: column;
+    background-color: #9FBFB9;
+    padding: 1rem;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 3px hsl(0deg 0% 57% / 39%);
+    width: 80vw;
+    height: auto;
+}
+
+.tineraryTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 4vh;
+    font-weight: bold;
+    color: aliceblue;
+    text-shadow: 4px 4px 2px rgb(98, 95, 95);
+    width: 100%;
+    height: 10vh;
+    background-image: url(../../public/assets/koi.jpg);
+}
+
+.titleBox {
+    background-color: #A62D43;
+    padding-left: .8rem;
+    padding-right: .8rem;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+}
+
+.userTineraryCreator {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-size: 5vh;
+    color: #F2F2F2;
+    font-weight: bolder;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-shadow: 4px 4px 2px rgb(98, 95, 95);
+}
+
+.tineraryInfo {
+    font-size: 3vh;
+    display: flex;
+    justify-content: space-around;
+    color: black;
+
+}
+
+.tineraryHashtags {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.hashtag{
+    font-size: 2.5vh;
+    color: #A62D43;
+}
+
+.hashtag:hover{
+    font-size: 2.5vh;
+    color: #F2F2F2;
+    text-shadow: 7px 1px 25px #A62D43;
+}
+
+.comingSoon {
+    text-align: center;
+    color: #F2F2F2;
+    font-size: 5vh;
+    font-family: 'Ropa Sans', sans-serif;
+}
+
+.notItinerary {
+    width: 100%;
+    background-image: url(../../public/assets/koi.jpg);
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.notTineraryText {
+    font-size: 3vw;
+    width: fit-content;
+    background-color: #A62D43;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: #F2F2F2;
+}
+
+
+
+@media (max-width: 1200px) {
+    .notTineraryText {
+        font-size: 4vw;
+    }
+}
+
+
+@media (max-width: 786px) {
+    .tineraryTitle {
+        font-size: 3.5vh;
+        font-weight: bold;
+        flex-wrap: wrap;
+        color: aliceblue;
+        text-shadow: 4px 4px 2px rgb(98, 95, 95);
+        width: 100%;
+        height: 13vh;
+        background-image: url(../../public/assets/koi.jpg);
+    }
+    .titleBox {
+        background-color: #A62D43;
+        padding-top: .2rem;
+        padding-bottom: .2rem;
+    }
+    .notTineraryText {
+        font-size: 6vw;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .tineraryTitle {
+        font-size: 2.5vh;
+        font-weight: bold;
+        flex-wrap: wrap;
+        color: aliceblue;
+        text-shadow: 4px 4px 2px rgb(98, 95, 95);
+        width: 100%;
+        height: 13vh;
+        background-image: url(../../public/assets/koi.jpg);
+    }
+    .titleBox {
+        background-color: #A62D43;
+        padding-top: .2rem;
+        padding-bottom: .2rem;
+    }
+    .userTineraryCreator {
+        flex-direction: column;
+    }
+    .tineraryInfo {
+        font-size: 3vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-around;
+        color: black;
+    }
+    .notTineraryText {
+        font-size: 8vw;
+    }
+}

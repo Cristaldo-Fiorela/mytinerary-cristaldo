@@ -15,14 +15,16 @@
     background-color: #382b224f;
 }
 
-.containerDetails {
+.containerTineraries {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    min-height: 100vh;
-    justify-content: space-around;
+    gap: 4rem;
     align-items: center;
+    justify-content: center;
     background-color: #F2F2F2;
+    padding-bottom: 5vh;
+    padding-top: 5vh;
 }
 
 

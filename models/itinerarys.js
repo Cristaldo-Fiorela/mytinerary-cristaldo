@@ -1,4 +1,4 @@
-const mongoose = require ('mongoose') // se conecta a mongo 
+const mongoose = require ('mongoose')
 
 
 const itinerarySchema = new mongoose.Schema({

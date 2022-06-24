@@ -4,8 +4,6 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Link as LinkRouter } from 'react-router-dom';
 import SearchError from './SearchError';
-//import { connect } from 'react-redux';
-//import citiesActions from "../redux/actions/citiesActions";
 import { useDispatch, useSelector  } from 'react-redux';
 import citiesActions from '../redux/actions/citiesActions';
 
@@ -26,18 +24,12 @@ function DisplayCardCities() {
 
     const [search, setSearch] = React.useState(' ')
 
-    //const cities = useSelector(store => store.citiesReducer.cities)
     const dispatch = useDispatch()
 
-    // useEffect(() => { //Acepta una función que contiene código imperativo, posiblemente código efectivo.
-    //     props.getCities()
-    // },[])
-
-    //let cityFiltered = cities.filter(city => city.name.toLowerCase().startsWith(search.trim().toLowerCase()))
-    
 
     React.useEffect(() =>{
         dispatch(citiesActions.filterCities(search)) 
+        // eslint-disable-next-line
     },[search])
 
     const cityFiltered = useSelector (store => store.citiesReducer.cityFiltered) // "store" HACE REFERENCIA AL STORE Q ESTA EN APP.JS
@@ -85,17 +77,5 @@ function DisplayCardCities() {
         </>
     );
 }
-
-// const mapDispatchProps = {
-//     getCities: citiesActions.getCities,
-// }
-
-// const mapStateToProps = (state)  => {
-//     return{
-//         cities: state.citiesReducer.cities,
-//         aux: state.citiesReducer.aux
-//     }
-// }
-
 
 export default (DisplayCardCities);

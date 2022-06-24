@@ -1,12 +1,9 @@
 const initialState = {
     cities: [],
     oneCity: {},
-    cityFiltered: []
-    // aux: [] //array auxiliar donde voy a guardar cosas de momento que no quiero q modifiquen mi array prtincipal
-    
+    cityFiltered: []    
 }
 
-// TODO: getCities, getOneCities, getCitiesFilter
 
 const citiesReducer = (state = initialState, action) => { //parametros de la funciona iniciada dentro de la constante
     

@@ -1,6 +1,4 @@
-//ESQUEMA DE LO QUIERO OBTENES
-
-const mongoose = require ('mongoose') // se conecta a mongo 
+const mongoose = require ('mongoose')
 
 
 const citySchema = new mongoose.Schema({
