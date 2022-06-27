@@ -27,7 +27,15 @@ const pages = [
     }
 ];
 
-const settings = ['Settings', 'LogIn'];
+const settings = [
+    {
+        to: '/SignIn',
+        name: 'Sign In'
+    }, 
+    {
+        to: '/SignUp',
+        name: 'Sign Up'
+    }];
 
 const ResponsiveAppBar = () => {
 
@@ -114,7 +122,8 @@ const ResponsiveAppBar = () => {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} />
                         {pages.map((page, index) => (
-                            <LinkRouter to={page.to}
+                            <LinkRouter 
+                            to={page.to}
                             key={index}
                             onClick={handleCloseNavMenu}
                             className='underlineNone '
@@ -151,10 +160,17 @@ const ResponsiveAppBar = () => {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
+                            {settings.map((page, index) => (
+                                <LinkRouter
+                                to={page.to}
+                                key={index}
+                                onClick={handleCloseUserMenu}
+                                className='underlineNone' 
+                                >
+                                    <MenuItem>
+                                        <Typography textAlign="center">{page.name}</Typography>
+                                    </MenuItem>
+                                </LinkRouter>
                             ))}
                         </Menu>
                     </Box>

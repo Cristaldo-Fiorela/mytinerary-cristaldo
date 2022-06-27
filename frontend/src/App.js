@@ -10,6 +10,8 @@ import { useEffect } from 'react';
 import Details from './component/Details';
 import { useDispatch} from 'react-redux'
 import citiesActions from './redux/actions/citiesActions';
+import SignIn from './component/SignIn';
+import SignUp from './component/SignUp';
 
 
 function App() {
@@ -18,8 +20,9 @@ function App() {
 
   useEffect(() => {
     dispatch(citiesActions.getCities())
+    // eslint-disable-next-line
   },[])
-  
+
 
   useEffect(() =>{
     setTimeout(()=>{
@@ -30,11 +33,13 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <Routes>
-        <Route path='/' element={<IndexHome/>} />
-        <Route path='/Cities' element={<CitiesHome/>}/>
-        <Route path='/Cities/:idCity' element={ <Details />} />
-      </Routes>
+        <Routes>
+          <Route path='/' element={<IndexHome/>} />
+          <Route path='/Cities' element={<CitiesHome/>}/>
+          <Route path='/Cities/:idCity' element={ <Details />} />
+          <Route path='/SignUp' element={ <SignUp/> } />
+          <Route path='/SignIn' element={ <SignIn/> }/>
+        </Routes>
       <Footer/>
       <ScrollToTop 
       smooth

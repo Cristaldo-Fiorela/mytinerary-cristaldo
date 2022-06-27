@@ -40,6 +40,7 @@ function DisplayCardCities() {
             <form className="search">
                 <label>Search:</label>
                 <input
+                    className='inputCities'
                     type="text"
                     placeholder="Search..."
                     id="search"

@@ -133,6 +133,7 @@ const itineraryControllers = {
         const id = req.params.id
         let itineraries
         let error = null
+        
         try {
             itineraries = await Itinerary.find({ idCity : id })
         } catch (err) {

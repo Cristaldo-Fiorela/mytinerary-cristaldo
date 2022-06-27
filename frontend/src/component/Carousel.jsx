@@ -26,10 +26,6 @@ import { Grid, Pagination, Navigation, Autoplay } from "swiper";
 
 function PopularTinerary() {
 
-
-    // useEffect(() => { //Acepta una función que contiene código imperativo, posiblemente código efectivo.
-    //     props.getCities()
-    // },[])
     const cities = useSelector(store => store.citiesReducer.cities)
 
 

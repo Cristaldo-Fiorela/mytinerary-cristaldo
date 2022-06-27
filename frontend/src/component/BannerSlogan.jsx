@@ -1,7 +1,5 @@
 import React from "react";
 import '../styles/banner.css'
-//importa la imagen a utilizar y la llama dentro de la funcion {}
-//import bannerSakuraBg from '../asserts/banner-sakura-bg.mp4'
 
 function BannerSlogan() {
     return (

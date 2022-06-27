@@ -22,6 +22,7 @@ Router.route("/multiplesCities")
 
 ///////////////////////ITINERARIES ROUTE/////////////////////////////////////
 
+
 Router.route('/itinerary')
 .get(getItinerary)
 .post(addItinerary)
@@ -30,7 +31,6 @@ Router.route('/itinerary/:id')
 .delete(removeItinerary)
 .put(modifyItinerary)
 .get(getOneItinerary)
-
 
 Router.route('/multiplesItinerary')
 .post(multiplesItinerary)
