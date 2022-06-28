@@ -6,6 +6,14 @@ const {getCities, getOneCity, addCity, modifyCity, removeCity, multiplesCities} 
 const itineraryControllers =  require('../controllers/itineraryControllers')
 const {getItinerary, getOneItinerary, addItinerary, modifyItinerary, removeItinerary, multiplesItinerary, getItineraryByIdCity} = itineraryControllers
 
+const userControllers = require('../controllers/usersControllers')
+const { signInUser, signUpUsers } = userControllers
+
+
+/////////////////////////////CITIES ROUTE////////////////////////////////
+
+
+
 Router.route('/cities')
 .get(getCities)
 .post(addCity)
@@ -20,7 +28,7 @@ Router.route('/cities/:id')
 Router.route("/multiplesCities")
 .post(multiplesCities)
 
-///////////////////////ITINERARIES ROUTE/////////////////////////////////////
+/////////////////////////////ITINERARIES ROUTE////////////////////////////////
 
 
 Router.route('/itinerary')
@@ -39,4 +47,24 @@ Router.route('/getItineraryByIdCity/:id')
 .get(getItineraryByIdCity)
 
 
+
+/////////////////////////////USER ROUTE////////////////////////////////
+
+
+
+Router.route('/auth/signUp')
+.post(signUpUsers)
+
+Router.route('/auth/signIn')
+.post(signInUser)
+
+// Router.route('/:uniqueString') // RECIBE LE LINK DEL USUARIO
+// .get(verifyEmail) //LLAMA A FUNCION DE VERIFICACION
+
+// Router.route('/auth/signInToken')
+// .get(passport.authenticate('jwt', { session: false }), verifyToken)
+
+
 module.exports = Router
+
+
