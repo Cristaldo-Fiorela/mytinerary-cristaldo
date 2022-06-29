@@ -72,7 +72,7 @@ const userControllers = {
 
 
     signInUser: async(req, res) => {
-        const { email, password, from} = req.body.logedUser
+        const { email, password, from} = req.body.loggedUser
         try{
             const userExists = await User.findOne({ email })
             //const indexpass = userExists.from.indexOf(from)
@@ -104,6 +104,7 @@ const userControllers = {
                         })
                     }
                 } else {
+                    // let samePassword = userExists.password.filter(pass => bcryptjs.compareSync(password, pass))
                     if (samePassword.length > 0) {
                         const userData = {
                             id: userExists._id,
@@ -116,7 +117,7 @@ const userControllers = {
                         res.json({
                             success: true,
                             from: from,
-                            response: { userData},
+                            response: { userData}, //token eliminado de pdf porque todavia no lo usamos
                             message: 'Welcome back ' + userData.firstName + userData.lastName,
                         })
                     } else {

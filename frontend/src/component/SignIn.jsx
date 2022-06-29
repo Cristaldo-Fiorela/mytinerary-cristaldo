@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
@@ -10,6 +9,8 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useDispatch } from 'react-redux';
+import usersActions from '../redux/actions/usersActions';
 
 
 import '../styles/signUp.css'
@@ -18,14 +19,37 @@ import '../styles/signUp.css'
 const theme = createTheme();
 
 export default function SignInSide() {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
+
+
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     const data = new FormData(event.currentTarget);
+    //     console.log({
+    //         email: data.get('email'),
+    //         password: data.get('password'),
+    //     });
+    // };
+
+    //GUARA LOS DATOS QUE PONE EL DATO EN EL FRONT
+        const [email,setEmail] = React.useState("")
+        const [password,setPassword] = React.useState("")
+    
+    
+        const dispatch = useDispatch()
+    
+        const handleSubmit = (event) => { 
+            event.preventDefault()
+            const loggedUser = {
+                email: email,
+                password: password,
+                from: 'form-signup'
+            }
+            dispatch(usersActions.signInUser(loggedUser))
+
+            setEmail('')
+            setPassword('')
+        }
+        
 
     return (
         <ThemeProvider theme={theme}>
@@ -63,6 +87,8 @@ export default function SignInSide() {
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
                             <TextField
+                                onChange={e=>setEmail(e.target.value)}
+                                value={email}
                                 margin="normal"
                                 required
                                 fullWidth
@@ -74,6 +100,8 @@ export default function SignInSide() {
                                 autoFocus
                             />
                             <TextField
+                                onChange={e=>setPassword(e.target.value)}
+                                value={password}
                                 margin="normal"
                                 required
                                 fullWidth

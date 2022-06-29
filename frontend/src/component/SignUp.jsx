@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useDispatch } from 'react-redux';
+import usersActions from '../redux/actions/usersActions';
 
 import '../styles/signUp.css'
 
@@ -38,9 +39,14 @@ export default function SignUp() {
             lastName: lastName,
             email: email,
             password: password,
-            from: "form-signup"
+            from: "form-SignUp"
         }
-        dispatch( "ACA VAN LAS ACCIONES JS".signUpUser(userData))
+        dispatch(usersActions.signUpUsers(userData))
+
+        setFirstName('')
+        setLastName('')
+        setEmail('')
+        setPassword('')
     }
 
     return (
@@ -62,10 +68,14 @@ export default function SignUp() {
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
+
+                    
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
                                 <TextField
+                                    onChange={e=>setFirstName(e.target.value)}
+                                    value={firstName}
                                     autoComplete="given-name"
                                     name="firstName"
                                     required
@@ -78,6 +88,8 @@ export default function SignUp() {
                             </Grid>
                             <Grid item xs={12} sm={6}>
                                 <TextField
+                                    onChange={e=>setLastName(e.target.value)}
+                                    value={lastName}
                                     required
                                     fullWidth
                                     id="lastName"
@@ -88,6 +100,8 @@ export default function SignUp() {
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
+                                    onChange={e=>setEmail(e.target.value)}
+                                    value={email}
                                     required
                                     fullWidth
                                     id="email"
@@ -98,6 +112,8 @@ export default function SignUp() {
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
+                                    onChange={e=>setPassword(e.target.value)}
+                                    value={password}
                                     required
                                     fullWidth
                                     name="password"
