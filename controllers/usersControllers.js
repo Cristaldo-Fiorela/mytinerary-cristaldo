@@ -6,7 +6,7 @@ const userControllers = {
 
     // USUARIOS QUE SE REGISTRAN
     signUpUsers: async (req, res) => {
-        let { firstName, lastName, email, password, from} = req.body.userData // DATOS SOLICITADOS DEL BODY DESDE FRONT
+        let { firstName, lastName, country, userPhoto, email, password, from} = req.body.userData // DATOS SOLICITADOS DEL BODY DESDE FRONT
         const test = req.body.test // ? 
 
         try { // TRATA
@@ -41,6 +41,8 @@ const userControllers = {
                     firstName,
                     lastName,
                     email, 
+                    country,
+                    userPhoto,
                     password: [hashedPassword], //recibe la const de arriba de la contra nueva
                     // uniqueString: crypto.randomBytes(15).toString('hex'),  FIXME: PREGUNTAR EN CLASE QUE ES ESTO
                     // verifiedEmail: false, FIXME: POR QUE AGREGAN COSAS QUE NO ESTAN EN EL MODELO? DONDE FIGURAN
@@ -66,7 +68,7 @@ const userControllers = {
             }
             }
         } catch (error) { // atrapa el error
-            res.json({ success: false, message: 'Something went wrong. Try again after a few minutes.'}) // devuelve este querido mensaje.
+            res.json({ success: false, message: 'Something went wrong. Try again after a few minutes.', error: error.message}) // devuelve este querido mensaje.
         }
     },
 
@@ -86,6 +88,8 @@ const userControllers = {
                             id: userExists._id,
                             firstName: userExists.firstName,
                             lastName: userExists.lastName,
+                            country: userExists.country,
+                            userPhoto: userExists.userPhoto,
                             email: userExists.email,
                             from: from,
                         }
@@ -94,7 +98,7 @@ const userControllers = {
                             success: true,
                             from: from,
                             response: { userData },
-                            message: 'Welcome back ' + userData.firstName + ' ' + userData.lastName,
+                            message: 'Welcome back ' + userData.firstName,
                         })
                     } else {
                         res.json({
@@ -110,6 +114,8 @@ const userControllers = {
                             id: userExists._id,
                             firstName: userExists.firstName,
                             lastName: userExists.lastName,
+                            country: userExists.country,
+                            userPhoto: userExists.userPhoto,
                             email: userExists.email,
                             from: from,
                         }
@@ -118,7 +124,7 @@ const userControllers = {
                             success: true,
                             from: from,
                             response: { userData}, //token eliminado de pdf porque todavia no lo usamos
-                            message: 'Welcome back ' + userData.firstName + userData.lastName,
+                            message: 'Welcome back ' + userData.firstName ,
                         })
                     } else {
                         res.json({

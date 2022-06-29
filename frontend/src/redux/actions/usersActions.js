@@ -4,10 +4,11 @@ import axios from "axios";   //importamos axios porque vamos a fechear
 const usersActions = {
 
     signUpUsers: (userData) => { //funcion
-        //console.log(userData)
+        console.log(userData)
+        console.log(typeof userData.userPhoto)
         return async (dispatch, getState) => { //propiedades de despacho y estado
             const res = await axios.post('http://localhost:4000/api/auth/signUp', {userData})
-            //console.log(res)
+            console.log(res)
             dispatch({
                 type: 'MESSAGE', 
                 payload:{ 

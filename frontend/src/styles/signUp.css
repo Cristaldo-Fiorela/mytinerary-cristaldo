@@ -7,6 +7,10 @@
 
 .containerForm {
     background-image: url(https://i.pinimg.com/originals/80/07/29/8007295baf3dda7c16fda4f96b38a816.jpg);
+    background-image: url(https://www.thetrainline.com/cmsmedia/cms/7709/japan_2x.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 77vh;
     width: 100%;
     display: flex;
