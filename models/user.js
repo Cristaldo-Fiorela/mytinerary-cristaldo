@@ -8,6 +8,8 @@ const userSchema =  new mongoose.Schema({
     email:{type:String, required:true},
     password: [{type:String, required:true}],
     from:{type:Array}, // hace referencia al metodo con el que nos registremos (FB, GOOGLE, NUESTRO SIGN IN)
+    uniqueString: {type:String, required:true},
+    verification: {type:Boolean, required:true}
 })
 
 const User = mongoose.model('users', userSchema)

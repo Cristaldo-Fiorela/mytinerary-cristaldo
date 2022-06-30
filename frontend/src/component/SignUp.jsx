@@ -16,9 +16,12 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { toast } from 'react-toastify';
 
 
 import '../styles/signUp.css'
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const theme = createTheme();
 
@@ -42,7 +45,7 @@ export default function SignUp() {
     const dispatch = useDispatch()
 
     //
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
         const userData = {
             firstName: firstName,
@@ -53,7 +56,22 @@ export default function SignUp() {
             password: password,
             from: "form-SignUp"
         }
-        dispatch(usersActions.signUpUsers(userData))
+        const res = await dispatch(usersActions.signUpUsers(userData))
+        
+        const errorMsg = res.data.message
+
+        if (res.data.from === 'validator') {
+            errorMsg.forEach(element => {
+                toast.error(element.message)
+            })
+        }
+        if (res.data.from === 'signup')
+            if (res.data.success) {
+                toast.success(res.data.message)
+            } else {
+                toast.error(res.data.message)
+            }
+        
 
         // VALIDACION
 
@@ -71,7 +89,7 @@ export default function SignUp() {
                 <Container component="main" maxWidth="xs" >
                     <CssBaseline />
                     <Box
-                        className='signInContainer'
+                        className='signUpContainer'
                         sx={{
                             display: 'flex',
                             flexDirection: 'column',
@@ -143,12 +161,7 @@ export default function SignUp() {
                                         </Select>
                                     </FormControl>
                                 </Grid>
-                                {/* 
-                                    <select name="country" id="country" className='myInputRegister' onChange={e=>setCountry(e.target.value)} required>
-                                            {countries.map( everyCountry =>
-                                        <option key={everyCountry} value={everyCountry}>{everyCountry}</option>)}
-                                    </select>
-                            </Grid> */}
+
                                 <Grid item xs={12}>
                                     <TextField
                                         onChange={e => setEmail(e.target.value)}
@@ -182,6 +195,7 @@ export default function SignUp() {
                             >
                                 Sign In
                             </button>
+                            <Typography>or</Typography>
                             <Grid container justifyContent="flex-end">
                                 <Grid>
                                     <GoogleSignUp />

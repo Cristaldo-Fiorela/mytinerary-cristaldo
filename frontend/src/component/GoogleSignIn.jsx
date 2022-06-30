@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function GoogleSignUp() {
+export default function GoogleSignIn() {
     const dispatch = useDispatch()
 
 
@@ -17,17 +17,13 @@ export default function GoogleSignUp() {
         let userObject = jwt_decode(response.credential)
         console.log(userObject)
         
-        const res = await dispatch(usersActions.signUpUsers({
-            firstName: userObject.given_name,
-            lastName: userObject.family_name,
-            userPhoto: userObject.picture,
+        const res = await dispatch(usersActions.signInUser({
             email: userObject.email,
             password: userObject.jti,
             from: 'google'
         }))
         //console.log(res)
 
-        if (res.data.from === 'signup')
         if (res.data.success) {
             toast.success(res.data.message)
         } else {
@@ -41,7 +37,7 @@ useEffect(() => {
     google.accounts.id.initialize({
         //process.env.CLIENT_ID,
         client_id: '825877478129-ji9qsrs31e9gl4e2eppqon4n5ide92o7.apps.googleusercontent.com',
-        context: 'signup',
+        context: 'signin',
         callback: handleCallbackResponse
     })
 

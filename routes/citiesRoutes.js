@@ -8,7 +8,8 @@ const itineraryControllers =  require('../controllers/itineraryControllers')
 const {getItinerary, getOneItinerary, addItinerary, modifyItinerary, removeItinerary, multiplesItinerary, getItineraryByIdCity} = itineraryControllers
 
 const userControllers = require('../controllers/usersControllers')
-const { signInUser, signUpUsers } = userControllers
+const { signInUser, signUpUsers, verifyMail } = userControllers
+
 
 
 /////////////////////////////CITIES ROUTE////////////////////////////////
@@ -59,8 +60,8 @@ Router.route('/auth/signUp')
 Router.route('/auth/signIn')
 .post(signInUser)
 
-// Router.route('/:uniqueString') // RECIBE LE LINK DEL USUARIO
-// .get(verifyEmail) //LLAMA A FUNCION DE VERIFICACION
+Router.route('/verify/:string') // RECIBE LE LINK DEL USUARIO
+.get(verifyMail) //LLAMA A FUNCION DE VERIFICACION
 
 // Router.route('/auth/signInToken')
 // .get(passport.authenticate('jwt', { session: false }), verifyToken)

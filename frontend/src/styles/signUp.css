@@ -1,8 +1,9 @@
-.signInContainer {
+.signUpContainer {
     background-color: brown;
     background-color: #F2F2F2;
     border-radius: 30px;
     padding: 2rem;
+    margin: 1.5rem;
 }
 
 .containerForm {
@@ -11,7 +12,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 77vh;
+    height: fit-content;
     width: 100%;
     display: flex;
     flex-direction: row;

@@ -1,5 +1,7 @@
 const User = require('../models/user')
 const bcryptjs = require('bcryptjs')
+const sendVerification = require('./sendVerification')
+const crypto = require('crypto')
 
 
 const userControllers = {
@@ -12,21 +14,25 @@ const userControllers = {
         try { // TRATA
 
             const userExists = await User.findOne({ email }) // Busca un objeto con el modelo email en nuestra base de datos y lo guarda en la const usuario Existe
+            const verification = false // falso por default
+            const uniqueString = crypto.randomBytes(15).toString('hex') // utilizo los metodos de crypto
 
             if (userExists) { // si usuario existe, osea, si encontro algo, nos metemos en el if anidado
 
                 if (userExists.from.indexOf(from) !== -1) { // si aquello que existe tiene un indice diferente a -1 (los indices arrancan desde 0, el from es el meteodo con el que nos vamos a registrar, que es un array)
+                    
                     res.json({
                         success: false, //existe mail asi que falla al regitrar nuevo usuario con un mail ya registrado, por eso false
                         from: 'signup',
                         message: 'This email is already register, please Sign In'
                     })
-                } else { //de lo contrario..... (seguimos dentro de la opciones de usuarios Existentes)
+                } else { //de lo contrario..... (seguimos dentro de la opciones de usuarios Existentes) si existe pero no se registro con ese metodo
 
                     const hashedPassword = bcryptjs.hashSync( password, 10) //encryptamos la nueva contraseña creada con el nuevo metodo de registro (fb, google, sign) sin reemplazar la existente
-
                     userExists.from.push(from) //pusheo al modelo "from" el nuevo metodo de inicio del usuario
                     userExists.password.push(hashedPassword) // pusheo la nueva contra  a el array donde tenia las demas contras del usario
+                    userExists.verification = true
+
                     await userExists.save() //espera la respuesta de push y lo guarda
                     res.json({
                         success: true, 
@@ -44,29 +50,33 @@ const userControllers = {
                     country,
                     userPhoto,
                     password: [hashedPassword], //recibe la const de arriba de la contra nueva
-                    // uniqueString: crypto.randomBytes(15).toString('hex'),  FIXME: PREGUNTAR EN CLASE QUE ES ESTO
-                    // verifiedEmail: false, FIXME: POR QUE AGREGAN COSAS QUE NO ESTAN EN EL MODELO? DONDE FIGURAN
+                    uniqueString: uniqueString, 
+                    verification,
                     from: [ from ] // FIXME: x que este esta encerrado con corchetes ?
                 })
             
             // IF ANIDADO DE NUESTO ELSE QUE DICE Q NO EXISTE EL USUARIO
 
-            if (from !== 'form-SignUp') {  //  si el metodo utilizado para crear el nuevo usuario es distinto a nuestro formulario, hago esto:
-                await newUser.save() // evalua el metodo del nuevo usuario, cuando se cumpla. guardalo.
-                res.json({
-                    success: true,
-                    from: 'signup',
-                    message: 'Congratulations! User creation with ' + from + ' is completed'
-                })
-            } else { // si el metodo utilizado es el de nuestro formulario
-                await newUser.save()
-                res.json({
-                    success: true,
-                    from: 'signup',
-                    message: 'We send you and email verification, please check your mailbox' //cambia la respuesta porque el metodo utilizado es diferente
-                })
-            }
-            }
+                if (from !== 'form-SignUp') {  //  si el metodo utilizado para crear el nuevo usuario es distinto a nuestro formulario, hago esto:
+                
+                    newUser.verification = true // le estamos diciendo que no es necesario q valide los datos de metodos de registro diferente a nuestro form
+                
+                    await newUser.save() // evalua el metodo del nuevo usuario, cuando se cumpla. guardalo.
+                    res.json({
+                        success: true,
+                        from: 'signup',
+                        message: 'Congratulations! User creation with ' + from + ' is completed'
+                    })
+                } else { // si el metodo utilizado es el de nuestro formulario
+                    await newUser.save()
+                    await sendVerification(email, uniqueString)
+                    res.json({
+                        success: true,
+                        from: 'signup',
+                        message: 'We send you a email verification, please check your mailbox' //cambia la respuesta porque el metodo utilizado es diferente
+                    })
+                }
+                }
         } catch (error) { // atrapa el error
             res.json({ success: false, message: 'Something went wrong. Try again after a few minutes.', error: error.message}) // devuelve este querido mensaje.
         }
@@ -83,7 +93,8 @@ const userControllers = {
             } else {
                 if (from !== 'form-SignUp') {
                     let samePassword = userExists.password.filter(pass => bcryptjs.compareSync(password, pass))
-                    if (samePassword.length > 0) {
+
+                    if (samePassword.length == 0) {
                         const userData = {
                             id: userExists._id,
                             firstName: userExists.firstName,
@@ -104,11 +115,13 @@ const userControllers = {
                         res.json({
                             success: false,
                             from: from,
-                            message: 'You have not registered with ' + from + 'if you want to sign in with this method you must sign up with ' + from,
+                            message: 'You have not registered with ' + from + ' if you want to sign in with this method you must sign up with ' + from,
                         })
                     }
-                } else {
-                    // let samePassword = userExists.password.filter(pass => bcryptjs.compareSync(password, pass))
+                } else { //si encuentra mail del metodo de nuestro form
+
+                    let samePassword = userExists.password.filter(pass => bcryptjs.compareSync(password, pass))
+                    
                     if (samePassword.length > 0) {
                         const userData = {
                             id: userExists._id,
@@ -139,6 +152,24 @@ const userControllers = {
             res.json({ success: false, messaje: 'Something went wrong. Try again after a few minutes.'})
         }
     },
+
+    verifyMail: async (req, res) => {
+        const { string } = req.params
+        const user = await User.findOne({uniqueString: string })
+        //console.log(user)
+
+        if (user) {
+            user.verification = true
+            await user.save()
+            res.redirect('http://localhost:3000')
+        }
+        else { res.json({
+            success: false,
+            message: `email has not been confirmed yet!`
+        })
+
+        }
+    }
 
 }
 

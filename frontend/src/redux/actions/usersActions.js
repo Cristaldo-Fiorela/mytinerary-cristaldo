@@ -5,7 +5,6 @@ const usersActions = {
 
     signUpUsers: (userData) => { //funcion
         console.log(userData)
-        console.log(typeof userData.userPhoto)
         return async (dispatch, getState) => { //propiedades de despacho y estado
             const res = await axios.post('http://localhost:4000/api/auth/signUp', {userData})
             console.log(res)
@@ -16,6 +15,7 @@ const usersActions = {
                     message: res.data.message, // SNACKBAR
                     success: res.data.success
                 }})
+            return res
         }
     },
 
@@ -40,6 +40,7 @@ const usersActions = {
                     }
                 })
             }
+            return res
         }
     },
 

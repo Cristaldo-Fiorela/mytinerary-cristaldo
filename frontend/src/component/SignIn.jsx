@@ -11,9 +11,14 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import usersActions from '../redux/actions/usersActions';
+import { toast } from 'react-toastify';
+import GoogleSignIn from './GoogleSignIn';
+
 
 
 import '../styles/signUp.css'
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const theme = createTheme();
@@ -28,14 +33,21 @@ export default function SignInSide() {
     
         const dispatch = useDispatch()
     
-        const handleSubmit = (event) => { 
+        const handleSubmit = async (event) => { 
             event.preventDefault()
             const loggedUser = {
                 email: email,
                 password: password,
-                from: 'form-signup'
+                from: 'form-SignUp'
             }
-            dispatch(usersActions.signInUser(loggedUser))
+            const res = await dispatch(usersActions.signInUser(loggedUser))
+            console.log(res)
+
+            if (res.data.success) {
+                    toast.success(res.data.message)
+                } else {
+                    toast.error(res.data.message)
+                }
 
             setEmail('')
             setPassword('')
@@ -110,6 +122,7 @@ export default function SignInSide() {
                             >
                                 Sign In
                             </button>
+                            <GoogleSignIn />
                             <Grid container>
                                 <Grid item xs>
                                     <Link href="#" variant="body2">
