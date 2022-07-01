@@ -1,6 +1,7 @@
 const User = require('../models/user')
 const bcryptjs = require('bcryptjs')
 const sendVerification = require('./sendVerification')
+const jwt = require('jsonwebtoken')
 const crypto = require('crypto')
 
 
@@ -141,11 +142,11 @@ const userControllers = {
                         await userExists.save()
                         // FIXME: ACA TOKEN
                         const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24 }) // 1h
-
+                                                                                            // seg - min - dia
                         res.json({
                             success: true,
                             from: from,
-                            response: { userData}, //token eliminado de pdf porque todavia no lo usamos
+                            response: { token, userData}, 
                             message: 'Welcome back ' + userData.firstName ,
                         })
                     } else {
@@ -186,7 +187,30 @@ const userControllers = {
         })
 
         }
-    }
+    },
+
+    verifyToken:(req, res) => {
+        //console.log(req.user)
+        if (req.user) { // FIXME: de donde viene el user? 
+        res.json({
+            success: true,
+            response: {
+                id: req.user.id,
+                firstName:req.user.firstName,
+                lastName: req.user.lastName,
+                country: req.user.country,
+                userPhoto:req.user.userPhoto,
+                email:req.user.email,
+                from:'token'},
+                message:"Hi! Welcome back "+req.user.firstName
+            }) 
+        } else {
+            res.json({
+                success:false,
+                message:"Sign in please!"}) 
+        }
+    },
+
 
 }
 

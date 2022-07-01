@@ -13,7 +13,7 @@ import citiesActions from './redux/actions/citiesActions';
 import SignIn from './component/SignIn';
 import SignUp from './component/SignUp';
 import { ToastContainer } from 'react-toastify';
-
+import usersActions from './redux/actions/usersActions';
 
 
 
@@ -24,7 +24,13 @@ function App() {
 
   useEffect(() => {
     dispatch(citiesActions.getCities())
-    // eslint-disable-next-line
+
+    if(localStorage.getItem('token')!==null){
+    const token = localStorage.getItem('token')
+  dispatch(usersActions.verifyToken(token))
+  }
+
+  // eslint-disable-next-line
   }, [])
 
 
@@ -33,6 +39,7 @@ function App() {
       window.scrollTo(0, 0)
     }, 500)
   }, [])
+
 
   return (
     <div className="App">

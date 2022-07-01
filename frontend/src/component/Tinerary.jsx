@@ -39,7 +39,7 @@ function TineraryCard(props) {
     // CARD //
     return (
         <>
-            <div className='conteinerTinerary'>
+            <div className='conteinerTinerary' key={props._id}>
 
                 <div className='cardTinerary'>
                     <div className='tineraryTitle'>
