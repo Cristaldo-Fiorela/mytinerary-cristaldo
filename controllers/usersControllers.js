@@ -85,16 +85,18 @@ const userControllers = {
 
     signInUser: async(req, res) => {
         const { email, password, from} = req.body.loggedUser
+
         try{
             const userExists = await User.findOne({ email })
             //const indexpass = userExists.from.indexOf(from)
-            if (!userExists) {
+            if (!userExists) { // usuario no existe
                 res.json({ success: false, message: 'The entered user does not exist. Please signUp'})
-            } else {
-                if (from !== 'form-SignUp') {
+            } else { //existe
+
+                if (from !== 'form-SignUp') { // se logea de un metodo distinto de nuestro form
                     let samePassword = userExists.password.filter(pass => bcryptjs.compareSync(password, pass))
 
-                    if (samePassword.length == 0) {
+                    if (samePassword.length > 0) { // length NO ES index. comienza desde el 1, el index comienza desde el 0
                         const userData = {
                             id: userExists._id,
                             firstName: userExists.firstName,
@@ -103,15 +105,17 @@ const userControllers = {
                             userPhoto: userExists.userPhoto,
                             email: userExists.email,
                             from: from,
-                        }
+                        } 
                         await userExists.save()
+                        // FIXME: ACA TOKEN
+                        const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24 }) //1h
                         res.json({
                             success: true,
                             from: from,
-                            response: { userData },
+                            response: { token,userData },
                             message: 'Welcome back ' + userData.firstName,
                         })
-                    } else {
+                    } else { // existe usuario (mail) pero no esta registrando el metodo nuevo
                         res.json({
                             success: false,
                             from: from,
@@ -119,9 +123,10 @@ const userControllers = {
                         })
                     }
                 } else { //si encuentra mail del metodo de nuestro form
+                    if (userExists.verification){ //si el usuario esta VERIFICADO
 
                     let samePassword = userExists.password.filter(pass => bcryptjs.compareSync(password, pass))
-                    
+
                     if (samePassword.length > 0) {
                         const userData = {
                             id: userExists._id,
@@ -132,7 +137,11 @@ const userControllers = {
                             email: userExists.email,
                             from: from,
                         }
+                        
                         await userExists.save()
+                        // FIXME: ACA TOKEN
+                        const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24 }) // 1h
+
                         res.json({
                             success: true,
                             from: from,
@@ -145,11 +154,19 @@ const userControllers = {
                             from: from,
                             message: 'User name or password incorrect'
                         })
-                    }
+                    } 
+                }
+                else {
+                    res.json({
+                        success: false,
+                        from: from,
+                        message: "Please verified your mail"
+                    })
                 }
             }
+            }
         } catch (error) {
-            res.json({ success: false, messaje: 'Something went wrong. Try again after a few minutes.'})
+            res.json({ success: false, messaje: 'Something went wrong. Try again after a few minutes.', error: error.message})
         }
     },
 

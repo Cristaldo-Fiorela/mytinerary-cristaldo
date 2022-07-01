@@ -40,7 +40,8 @@ const sendVerification = async (email,string) => { //controlador
         html: 
             `
             <a href=http://localhost:4000/api/verify/${string}>Click!</a>
-            <h3>to confirm!</h3>`
+            <h3>to confirm!</h3>
+            `
     }
 
     await transporter.sendMail(mailOptions, function (error, response){

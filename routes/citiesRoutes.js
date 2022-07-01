@@ -57,11 +57,15 @@ Router.route('/getItineraryByIdCity/:id')
 Router.route('/auth/signUp')
 .post(validator, signUpUsers)
 
+
 Router.route('/auth/signIn')
 .post(signInUser)
 
 Router.route('/verify/:string') // RECIBE LE LINK DEL USUARIO
 .get(verifyMail) //LLAMA A FUNCION DE VERIFICACION
+
+//Router.route('/auth/signOut')
+//.post(signOut)
 
 // Router.route('/auth/signInToken')
 // .get(passport.authenticate('jwt', { session: false }), verifyToken)

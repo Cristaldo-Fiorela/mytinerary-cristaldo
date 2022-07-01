@@ -1,24 +1,31 @@
+// React - redux
 import * as React from 'react';
+import { useDispatch } from 'react-redux';
+import { Link as LinkRouter } from "react-router-dom";
+
+// OWN COMPONENTS
+import usersActions from '../redux/actions/usersActions';
+import GoogleSignUp from './GoogleSignUp'
+
+// TOASTER COMPONENT
+import { toast } from 'react-toastify';
+
+// MUI COMPONENT
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import Avatar from '@mui/material/Avatar';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useDispatch } from 'react-redux';
-import usersActions from '../redux/actions/usersActions';
-import GoogleSignUp from './GoogleSignUp'
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import { toast } from 'react-toastify';
 
-
+// STYLES   
 import '../styles/signUp.css'
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -195,15 +202,13 @@ export default function SignUp() {
                             >
                                 Sign In
                             </button>
-                            <Typography>or</Typography>
+                            <p className='orForm'>or</p>
+                            <GoogleSignUp />
                             <Grid container justifyContent="flex-end">
-                                <Grid>
-                                    <GoogleSignUp />
-                                </Grid>
                                 <Grid item>
-                                    <Link href="#" variant="body2">
+                                    <LinkRouter to='/SignIn' variant="body2" className='underlineNone signRouter'>
                                         Already have an account? Sign in
-                                    </Link>
+                                    </LinkRouter>
                                 </Grid>
                             </Grid>
                         </Box>

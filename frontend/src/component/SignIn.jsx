@@ -1,4 +1,14 @@
+// REACT - REDUX
 import * as React from 'react';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { Link as LinkRouter } from "react-router-dom";
+
+// OWN COMPONENTS
+import usersActions from '../redux/actions/usersActions';
+import GoogleSignIn from './GoogleSignIn';
+
+// MUI COPONENT
 import Avatar from '@mui/material/Avatar';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -9,13 +19,8 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useDispatch } from 'react-redux';
-import usersActions from '../redux/actions/usersActions';
-import { toast } from 'react-toastify';
-import GoogleSignIn from './GoogleSignIn';
 
-
-
+// STYLES
 import '../styles/signUp.css'
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -124,15 +129,10 @@ export default function SignInSide() {
                             </button>
                             <GoogleSignIn />
                             <Grid container>
-                                <Grid item xs>
-                                    <Link href="#" variant="body2">
-                                        Forgot password?
-                                    </Link>
-                                </Grid>
                                 <Grid item>
-                                    <Link href="#" variant="body2">
-                                        {"Don't have an account? Sign Up"}
-                                    </Link>
+                                    <LinkRouter to='/SignUp' variant="body2" className='underlineNone signRouter'>
+                                        "Don't have an account? Sign Up"
+                                    </LinkRouter>
                                 </Grid>
                             </Grid>
                         </Box>

@@ -19,7 +19,7 @@ export default function GoogleSignIn() {
         
         const res = await dispatch(usersActions.signInUser({
             email: userObject.email,
-            password: userObject.jti,
+            password: userObject.sub,
             from: 'google'
         }))
         //console.log(res)

@@ -22,7 +22,7 @@ export default function GoogleSignUp() {
             lastName: userObject.family_name,
             userPhoto: userObject.picture,
             email: userObject.email,
-            password: userObject.jti,
+            password: userObject.sub,
             from: 'google'
         }))
         //console.log(res)
@@ -41,13 +41,13 @@ useEffect(() => {
     google.accounts.id.initialize({
         //process.env.CLIENT_ID,
         client_id: '825877478129-ji9qsrs31e9gl4e2eppqon4n5ide92o7.apps.googleusercontent.com',
-        context: 'signup',
+        context: 'signup', 
         callback: handleCallbackResponse
     })
 
     google.accounts.id.renderButton(
         document.getElementById('buttonDiv'),
-        { theme: 'outline', size: 'medium'}
+        { theme: 'outline', size: 'medium', text: "signup_with"}
     )
     // eslint-disable-next-line
 },[]);

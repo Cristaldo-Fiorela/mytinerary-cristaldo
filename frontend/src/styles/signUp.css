@@ -44,8 +44,23 @@
     background-position: top;
 }
 
+.signRouter {
+    color: #A62D43;
+}
+.signRouter:hover {
+    color: #285954;
+}
 
+.S9gUrf-YoZ4jf {
+    display: flex;
+    justify-content: center;
+}
 
+.orForm {
+    display: flex;
+    justify-content: center;
+    font-size: 2vh;
+}
 
 /* From uiverse.io by @satyamchaudharydev */
 .signInBtn {
