@@ -1,7 +1,7 @@
 // REACT
 import * as React from 'react';
 import { Link as LinkRouter } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // MUI LIBRARY
 import AppBar from '@mui/material/AppBar';
@@ -17,10 +17,12 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-
 // STYLES
 import '../styles/navbar.css'
-import LogOutNavBar from './NavBarLogOut';
+import { Avatar } from '@mui/material';
+import usersActions from '../redux/actions/usersActions';
+
+
 
 const pages = [
     {
@@ -35,16 +37,15 @@ const pages = [
 
 const settings = [
     {
-        to: '/SignIn',
-        name: 'Sign In'
+        to: '/',
+        name: 'Log Out'
     }, 
-    {
-        to: '/SignUp',
-        name: 'Sign Up'
-    }];
+];
 
-const ResponsiveAppBar = () => {
 
+const LogOutNavBar = () => {
+
+    const dispatch = useDispatch()
     const loggedUser = useSelector(store => store.usersReducer.user)
 
     const ScrollToTop = () =>  {
@@ -53,6 +54,10 @@ const ResponsiveAppBar = () => {
             behavior: "smooth",
             left:0
         })
+    }
+
+    const LogOut = () => {
+        dispatch(usersActions.signOutUser(loggedUser.email))
     }
 
     const [anchorElNav, setAnchorElNav] = React.useState(null); // componente funcional con hook
@@ -74,8 +79,6 @@ const ResponsiveAppBar = () => {
     };
 
     return (
-        <>
-        {!loggedUser ?
         <AppBar position="sticky" className='navbar-color'>
             <Container maxWidth="xl">
                 <Toolbar  disableGutters>
@@ -150,7 +153,7 @@ const ResponsiveAppBar = () => {
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <AccountCircleIcon style={{color: "#F2F2F2"}} fontSize="large"/>
+                                < Avatar src={loggedUser.userPhoto}/>
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -173,7 +176,7 @@ const ResponsiveAppBar = () => {
                                 <LinkRouter
                                 to={page.to}
                                 key={index}
-                                onClick={handleCloseUserMenu}
+                                onClick={()=>{handleCloseUserMenu(); LogOut()}}
                                 className='underlineNone colorMenu' 
                                 >
                                     <MenuItem>
@@ -186,10 +189,6 @@ const ResponsiveAppBar = () => {
                 </Toolbar>
             </Container>
         </AppBar>
-        :
-        < LogOutNavBar />
-        }
-        </>
     );
 };
-export default ResponsiveAppBar;
+export default LogOutNavBar;

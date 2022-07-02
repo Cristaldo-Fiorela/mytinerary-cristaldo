@@ -212,6 +212,15 @@ const userControllers = {
         }
     },
 
+    signOut: async (req, res) => {
+
+        const email = req.body.closeUser
+        const user = await User.findOne({ email })
+        //await user.save()
+
+        res.json({success:true})
+    },
+
 
 }
 
