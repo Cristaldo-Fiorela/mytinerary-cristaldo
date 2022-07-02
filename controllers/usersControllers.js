@@ -107,9 +107,10 @@ const userControllers = {
                             email: userExists.email,
                             from: from,
                         } 
-                        await userExists.save()
+                        
                         // FIXME: ACA TOKEN
                         const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24 }) //1h
+                            await userExists.save()
                         res.json({
                             success: true,
                             from: from,
@@ -139,10 +140,10 @@ const userControllers = {
                             from: from,
                         }
                         
-                        await userExists.save()
                         // FIXME: ACA TOKEN
                         const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24 }) // 1h
                                                                                             // seg - min - dia
+                            await userExists.save()
                         res.json({
                             success: true,
                             from: from,

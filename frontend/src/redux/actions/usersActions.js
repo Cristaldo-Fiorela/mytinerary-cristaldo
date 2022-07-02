@@ -59,7 +59,7 @@ const usersActions = {
 
 
     verifyToken: (token) => {
-        console.log(token)
+        //console.log(token)
 
         return async (dispatch, getState) => {
             await axios.get('http://localhost:4000/api/auth/signInToken', {

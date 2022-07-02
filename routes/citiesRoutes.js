@@ -1,6 +1,6 @@
 const Router = require('express').Router();
 const validator = require('../config/validator')
-const passport = require('passport')
+const passport = require('../config/passport')
 
 const citiesControllers =  require('../controllers/citiesControllers')
 const {getCities, getOneCity, addCity, modifyCity, removeCity, multiplesCities} = citiesControllers
