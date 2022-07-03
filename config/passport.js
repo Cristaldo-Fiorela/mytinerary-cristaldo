@@ -13,12 +13,12 @@ module.exports = passport.use(
             User.findOne({_id:jwt_payload.id})
 
             .then(user => {
-                console.log(user)
+                //console.log(user)
                 if (user) {
                     return done(null, user)
                 }
                 else if (err) {
-                    console.log(err)
+                    //console.log(err)
                     return done(err, false);
                 }
                 else{

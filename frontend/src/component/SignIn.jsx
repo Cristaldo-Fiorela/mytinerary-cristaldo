@@ -46,7 +46,7 @@ export default function SignInSide() {
                 from: 'form-SignUp'
             }
             const res = await dispatch(usersActions.signInUser(loggedUser))
-            console.log(res)
+            //console.log(res)
 
             if (res.data.success) {
                     toast.success(res.data.message)
@@ -87,9 +87,7 @@ export default function SignInSide() {
                             alignItems: 'center',
                         }}
                     >
-                        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                            <LockOutlinedIcon />
-                        </Avatar>
+                            <img src={process.env.PUBLIC_URL + "/assets/pinkLogo.png"} alt='sakura_logo' className='logoSignForm'/>
                         <Typography component="h1" variant="h5">
                             Sign in
                         </Typography>
@@ -104,7 +102,7 @@ export default function SignInSide() {
                                 label="Email Address"
                                 name="email"
                                 autoComplete="email"
-                                color="secondary"
+                                color="success"
                                 autoFocus
                             />
                             <TextField
@@ -117,7 +115,7 @@ export default function SignInSide() {
                                 label="Password"
                                 type="password"
                                 id="password"
-                                color="secondary"
+                                color="success"
                                 autoComplete="current-password"
                             />
                             <button 
@@ -127,8 +125,10 @@ export default function SignInSide() {
                             >
                                 Sign In
                             </button>
+                            <p className='orForm'>or</p>
                             <GoogleSignIn />
-                            <Grid container>
+
+                            <Grid container className='callToActionSign'>
                                 <Grid item>
                                     <LinkRouter to='/SignUp' variant="body2" className='underlineNone signRouter'>
                                         "Don't have an account? Sign Up"

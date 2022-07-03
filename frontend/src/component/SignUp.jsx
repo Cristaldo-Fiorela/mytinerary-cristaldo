@@ -103,9 +103,8 @@ export default function SignUp() {
                             alignItems: 'center',
                         }}
                     >
-                        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                            <LockOutlinedIcon />
-                        </Avatar>
+                            <img src={process.env.PUBLIC_URL + "/assets/pinkLogo.png"} alt='sakura_logo' className='logoSignForm'/>
+
                         <Typography component="h1" variant="h5">
                             Sign up
                         </Typography>
@@ -124,6 +123,7 @@ export default function SignUp() {
                                         id="firstName"
                                         label="First Name"
                                         autoFocus
+                                        color="success"
                                     />
 
                                 </Grid>
@@ -137,6 +137,7 @@ export default function SignUp() {
                                         label="Last Name"
                                         name="lastName"
                                         autoComplete="family-name"
+                                        color="success"
                                     />
                                 </Grid>
 
@@ -149,12 +150,13 @@ export default function SignUp() {
                                         fullWidth
                                         id="userPhoto"
                                         label="Photo"
+                                        color="success"
                                     />
                                 </Grid>
 
                                 <Grid item xs={12}>
                                     <FormControl fullWidth>
-                                        <InputLabel id="countries">Country*</InputLabel>
+                                        <InputLabel color="success" id="countries">Country*</InputLabel>
                                         <Select
                                             labelId="countries"
                                             id="demo-simple-select"
@@ -162,6 +164,7 @@ export default function SignUp() {
                                             label="Country"
                                             onChange={e => setCountry(e.target.value)}
                                             fullWidth
+                                            color="success"
                                         >
                                             {orderedCountries.map(everyCountry =>
                                                 <MenuItem key={everyCountry} value={everyCountry}> {everyCountry} </MenuItem>)}
@@ -179,6 +182,7 @@ export default function SignUp() {
                                         label="Email Address"
                                         name="email"
                                         autoComplete="email"
+                                        color="success"
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -192,6 +196,7 @@ export default function SignUp() {
                                         type="password"
                                         id="password"
                                         autoComplete="new-password"
+                                        color="success"
                                     />
                                 </Grid>
                             </Grid>
@@ -204,7 +209,7 @@ export default function SignUp() {
                             </button>
                             <p className='orForm'>or</p>
                             <GoogleSignUp />
-                            <Grid container justifyContent="flex-end">
+                            <Grid container justifyContent="flex-end" className='callToActionSign'>
                                 <Grid item>
                                     <LinkRouter to='/SignIn' variant="body2" className='underlineNone signRouter'>
                                         Already have an account? Sign in

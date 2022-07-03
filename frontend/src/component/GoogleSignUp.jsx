@@ -15,7 +15,7 @@ export default function GoogleSignUp() {
         //console.log(response.credential)
         
         let userObject = jwt_decode(response.credential)
-        console.log(userObject)
+        //console.log(userObject)
         
         const res = await dispatch(usersActions.signUpUsers({
             firstName: userObject.given_name,
@@ -47,7 +47,7 @@ useEffect(() => {
 
     google.accounts.id.renderButton(
         document.getElementById('buttonDiv'),
-        { theme: 'outline', size: 'medium', text: "signup_with"}
+        {  size: 'medium', theme: "filled_black", shape: "pill", locale:"EN", text:"signup_with" }
     )
     // eslint-disable-next-line
 },[]);

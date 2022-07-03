@@ -1,25 +1,32 @@
+//STYLES
 import './styles/App.css';
+
+// REACT
+import { Route, Routes } from 'react-router-dom'
+import ScrollToTop from 'react-scroll-to-top'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+
+// EXTERNAL LIBRERY
+import ArrowCircleUpRoundedIcon from '@mui/icons-material/ArrowCircleUpRounded';
+import { ToastContainer } from 'react-toastify';
+// COMPONENTS
 import NavBar from './component/Navbar';
 import Footer from './component/Footer';
 import IndexHome from './pages/IndexHome'
 import CitiesHome from '../src/pages/Cities'
-import { Route, Routes } from 'react-router-dom'
-import ScrollToTop from 'react-scroll-to-top';
-import ArrowCircleUpRoundedIcon from '@mui/icons-material/ArrowCircleUpRounded';
-import { useEffect } from 'react';
 import Details from './component/Details';
-import { useDispatch } from 'react-redux'
-import citiesActions from './redux/actions/citiesActions';
 import SignIn from './component/SignIn';
 import SignUp from './component/SignUp';
-import { ToastContainer } from 'react-toastify';
-import usersActions from './redux/actions/usersActions';
 
+// ACTIONS
+import citiesActions from './redux/actions/citiesActions';
+import usersActions from './redux/actions/usersActions';
 
 
 function App() {
 
-
+  const loggedUser = useSelector(store => store.usersReducer.user)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -61,9 +68,11 @@ function App() {
         <Route path='/' element={<IndexHome />} />
         <Route path='/Cities' element={<CitiesHome />} />
         <Route path='/Cities/:idCity' element={<Details />} />
-        <Route path='/SignUp' element={<SignUp />} />
-        <Route path='/SignIn' element={<SignIn />} />
-      </Routes>
+        {/* <Route path='/SignUp' element={<SignUp />} />
+        <Route path='/SignIn' element={<SignIn />} /> */}
+        {loggedUser ? <Route path='/SignUp' element={<IndexHome/>} /> : <Route path='/SignUp' element={<SignUp />} />}
+        {loggedUser ? <Route path='/SignIn' element={<IndexHome/>} /> : <Route path='/SignIn' element={<SignIn />} />}
+        </Routes>
       <Footer />
       <ScrollToTop
         smooth

@@ -15,7 +15,7 @@ export default function GoogleSignIn() {
         //console.log(response.credential)
         
         let userObject = jwt_decode(response.credential)
-        console.log(userObject)
+        //console.log(userObject)
         
         const res = await dispatch(usersActions.signInUser({
             email: userObject.email,
@@ -43,7 +43,7 @@ useEffect(() => {
 
     google.accounts.id.renderButton(
         document.getElementById('buttonDiv'),
-        { theme: 'outline', size: 'medium'}
+        {  size: 'medium', theme: "filled_black", shape: "pill", locale:"EN", text:"signin_with"}
     )
     // eslint-disable-next-line
 },[]);
