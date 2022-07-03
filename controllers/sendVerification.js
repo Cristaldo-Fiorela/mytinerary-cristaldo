@@ -138,7 +138,7 @@ const sendVerification = async (email, string) => { //controlador
                 </div>
 
 			</td>
-        	</tr>
+        </tr>
         </tbody></table>
 
 		</td>

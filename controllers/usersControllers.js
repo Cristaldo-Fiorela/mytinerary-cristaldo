@@ -216,8 +216,8 @@ const userControllers = {
 
         const email = req.body.closeUser
         const user = await User.findOne({ email })
-        //await user.save()
-
+        await user.save()
+        
         res.json({success:true})
     },
 
