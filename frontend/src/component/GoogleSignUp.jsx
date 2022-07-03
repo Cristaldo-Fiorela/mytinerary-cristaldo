@@ -23,7 +23,8 @@ export default function GoogleSignUp() {
             userPhoto: userObject.picture,
             email: userObject.email,
             password: userObject.sub,
-            from: 'google'
+            from: 'google',
+            country:'internet'
         }))
         //console.log(res)
 

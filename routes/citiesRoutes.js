@@ -16,7 +16,6 @@ const { signInUser, signUpUsers, verifyMail, verifyToken, signOut} = userControl
 /////////////////////////////CITIES ROUTE////////////////////////////////
 
 
-
 Router.route('/cities')
 .get(getCities)
 .post(addCity)
@@ -31,8 +30,8 @@ Router.route('/cities/:id')
 Router.route("/multiplesCities")
 .post(multiplesCities)
 
-/////////////////////////////ITINERARIES ROUTE////////////////////////////////
 
+/////////////////////////////ITINERARIES ROUTE////////////////////////////////
 
 Router.route('/itinerary')
 .get(getItinerary)

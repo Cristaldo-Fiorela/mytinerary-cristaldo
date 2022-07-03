@@ -23,8 +23,8 @@ const validator = (req, res, next) => { //declaro mi const con los parametros q 
                 'string.max': '"last name": max 20 characters'}),
 
         country: joi.string()
-                .trim(),
-                //.required(),
+                .trim()
+                .required(),
 
         userPhoto: joi.string()
                 .trim()
