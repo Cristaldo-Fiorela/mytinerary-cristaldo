@@ -13,10 +13,8 @@ export default function GoogleSignIn() {
 
     async function handleCallbackResponse(response) {
         //console.log(response.credential)
-        
         let userObject = jwt_decode(response.credential)
         //console.log(userObject)
-        
         const res = await dispatch(usersActions.signInUser({
             email: userObject.email,
             password: userObject.sub,

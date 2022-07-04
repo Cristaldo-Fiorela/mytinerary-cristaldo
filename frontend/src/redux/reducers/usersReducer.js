@@ -8,7 +8,9 @@ const initialState = {
 }
 
 const usersReducer = (state = initialState, action) => {
+
     switch (action.type) {
+        
         case 'USER':
             return {
                 ...state,

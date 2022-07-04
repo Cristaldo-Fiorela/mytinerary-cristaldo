@@ -41,11 +41,10 @@ const validator = (req, res, next) => { //declaro mi const con los parametros q 
         password: joi.string() //propiedad password a string
             .min(8) //min caracteres permitido
             //.max(20) //max caracteres permitido
-            .pattern(new RegExp('[a-zA-Z0-9]')) //asigna un patron a seguir: FIXME: aparentemente se puede indicar los min y max aca dentro segun la docu https://joi.dev/api/?v=17.6.0
+            .pattern(new RegExp('[a-zA-Z0-9]')) //asigna un patron a seguir
             .required() 
             .messages({
                 'string.min' : '"password" : min 8 characters',
-                // 'string.max' : '"password" : max 20 characters'
                 }),
 
         from: joi.string() // from a string y requerida con una key

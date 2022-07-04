@@ -37,7 +37,7 @@ const userControllers = {
                     await userExists.save() //espera la respuesta de push y lo guarda
                     res.json({
                         success: true, 
-                        from: 'signup', // FIXME:  nuestro signUp? Preguntar/ Google, FB, etc. -> metodos que no sean nuestro formulario
+                        from: 'signup', // Google, FB, etc. -> metodos que no sean nuestro formulario
                         message: "Added " + from + " at your options for sign in"
                     })
                 }
@@ -53,7 +53,7 @@ const userControllers = {
                     password: [hashedPassword], //recibe la const de arriba de la contra nueva
                     uniqueString: uniqueString, 
                     verification,
-                    from: [ from ] // FIXME: x que este esta encerrado con corchetes ?
+                    from: [ from ] 
                 })
             
             // IF ANIDADO DE NUESTO ELSE QUE DICE Q NO EXISTE EL USUARIO
@@ -108,7 +108,6 @@ const userControllers = {
                             from: from,
                         } 
                         
-                        // FIXME: ACA TOKEN
                         const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24 }) //1h
                             await userExists.save()
                         res.json({
@@ -140,7 +139,6 @@ const userControllers = {
                             from: from,
                         }
                         
-                        // FIXME: ACA TOKEN
                         const token = jwt.sign({...userData}, process.env.SECRET_KEY, {expiresIn: 60* 60*24 }) // 1h
                                                                                             // seg - min - dia
                             await userExists.save()
@@ -192,7 +190,7 @@ const userControllers = {
 
     verifyToken:(req, res) => {
         //console.log(req.user)
-        if (req.user) { // FIXME: de donde viene el user? 
+        if (req.user) { // 
         res.json({
             success: true,
             response: {
@@ -218,7 +216,10 @@ const userControllers = {
         const user = await User.findOne({ email })
         await user.save()
         
-        res.json({success:true})
+        res.json({
+            success:true,
+            message: "See you next time!"
+        })
     },
 
 
