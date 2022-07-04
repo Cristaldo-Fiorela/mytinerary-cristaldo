@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link as LinkRouter } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 // OWN COMPONENTS
 import usersActions from '../redux/actions/usersActions';
@@ -48,7 +49,7 @@ export default function SignUp() {
 
 
     const dispatch = useDispatch()
-
+    const navigate = useNavigate()
     //
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -73,11 +74,11 @@ export default function SignUp() {
         if (res.data.from === 'signup')
             if (res.data.success) {
                 toast.success(res.data.message)
+                navigate('/SignIn')
             } else {
                 toast.error(res.data.message)
             }
         
-
         // VALIDACION
 
         setFirstName('')

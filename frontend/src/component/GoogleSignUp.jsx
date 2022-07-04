@@ -3,13 +3,14 @@ import React, { useEffect } from "react"
 import jwt_decode from 'jwt-decode'
 import { useDispatch } from "react-redux"
 import usersActions from "../redux/actions/usersActions"
+import { useNavigate } from "react-router-dom"
 import { toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function GoogleSignUp() {
     const dispatch = useDispatch()
-
+    const navigate = useNavigate()
 
     async function handleCallbackResponse(response) {
         //console.log(response.credential)
@@ -31,6 +32,7 @@ export default function GoogleSignUp() {
         if (res.data.from === 'signup')
         if (res.data.success) {
             toast.success(res.data.message)
+            navigate('/SignIn')
         } else {
             toast.error(res.data.message)
         }
