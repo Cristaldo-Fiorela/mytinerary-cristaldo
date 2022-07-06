@@ -19,7 +19,7 @@ function UnderConstruction() {
             <div>
                 <h1>Page Under Construction</h1>
                 <h2>Sorry for the inconvenience.</h2>
-                <LinkRouter to='/Cities'>
+                <LinkRouter to='/cities'>
                     <button onClick={ScrollToTop} className="learn-more">Back to Cities</button>
                 </LinkRouter>
             </div>

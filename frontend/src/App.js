@@ -66,12 +66,12 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<IndexHome />} />
-        <Route path='/Cities' element={<CitiesHome />} />
-        <Route path='/Cities/:idCity' element={<Details />} />
+        <Route path='/cities' element={<CitiesHome />} />
+        <Route path='/cities/:idCity' element={<Details />} />
         {/* <Route path='/SignUp' element={<SignUp />} />
         <Route path='/SignIn' element={<SignIn />} /> */}
-        {loggedUser ? <Route path='/SignUp' element={<IndexHome/>} /> : <Route path='/SignUp' element={<SignUp />} />}
-        {loggedUser ? <Route path='/SignIn' element={<IndexHome/>} /> : <Route path='/SignIn' element={<SignIn />} />}
+        {loggedUser ? <Route path='/signup' element={<IndexHome/>} /> : <Route path='/signup' element={<SignUp />} />}
+        {loggedUser ? <Route path='/signin' element={<IndexHome/>} /> : <Route path='/signin' element={<SignIn />} />}
         </Routes>
       <Footer />
       <ScrollToTop

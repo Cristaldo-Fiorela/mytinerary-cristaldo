@@ -19,9 +19,9 @@ const sendVerification = async (email, string) => { //controlador
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.USER,
+            user: process.env.MY_USER,
             type: 'OAuth2',
-            user: process.env.USER,
+            user: process.env.MY_USER,
             clientId: process.env.GOOGLE_CLIENT_ID,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET,
             refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
@@ -34,7 +34,7 @@ const sendVerification = async (email, string) => { //controlador
     })
 
     let mailOptions = {
-        from: process.env.USER,
+        from: process.env.MY_USER,
         to: email,
         subject: 'verify account',
         html:

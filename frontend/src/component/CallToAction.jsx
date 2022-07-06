@@ -25,7 +25,7 @@ function CallToAction() {
                     <h2>Whatever you want, you can find it in Japan.</h2>
                 </div>
                 <div className="button-borders">
-                    <LinkRouter to='/Cities'>
+                    <LinkRouter to='/cities'>
                         <button  onClick={ScrollToTop} className="primary-button"> GET STARTED!</button>
                     </LinkRouter>
                 </div>

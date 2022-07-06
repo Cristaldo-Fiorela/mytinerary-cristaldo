@@ -36,7 +36,7 @@ function Footer() {
                     <Button onClick={ScrollToTop}  style={{color: "#F2F2F2"}}>Home</Button>
                 </LinkRouter>
 
-                <LinkRouter to= './Cities'>
+                <LinkRouter to= './cities'>
                     <Button onClick={ScrollToTop}  style={{color: "#F2F2F2"}}>Cities</Button>
                 </LinkRouter>
                 

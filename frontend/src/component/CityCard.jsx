@@ -61,7 +61,7 @@ function DisplayCardCities() {
                     >
                         <LinkRouter
                             className='underlineNone'
-                            to={`/Cities/${city._id}`}
+                            to={`/cities/${city._id}`}
                             key={city._id}
                         >
                             <CardContent className='cardContent'>

@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
-
+import Activities from './Activities';
 
 import '../styles/tinerary.css'
 
@@ -27,7 +27,8 @@ const ExpandMore = styled((props) => {
 
 
 function TineraryCard(props) {
-
+    //console.log(props)
+    console.log(props.activities)
 
     // EXPAND //
     const [expanded, setExpanded] = React.useState(false);
@@ -57,7 +58,7 @@ function TineraryCard(props) {
                         <div className='tineraryInfo'>
                             <p>price {props.price}</p>
                             <p>{props.duration}⏲</p>
-                            <p>likes ❤</p>
+                            <p>likes {props.like}</p>
                         </div>
 
                         <div className='tineraryHashtags' >
@@ -79,9 +80,13 @@ function TineraryCard(props) {
                     </CardActions>
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
                         <CardContent>
+                            {props.activities.length > 0 ?
+                            < Activities activities={props.activities}/>
+                            :
                             <h5 className='comingSoon'>
                                 Coming soon~
-                            </h5>
+                            </h5> 
+                            }
                         </CardContent>
                     </Collapse>
                 </div>

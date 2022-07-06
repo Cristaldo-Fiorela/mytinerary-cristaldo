@@ -67,7 +67,7 @@ export default function SignUp() {
         const errorMsg = res.data.message
 
         if (res.data.from === 'validator') {
-            errorMsg.forEach(element => {
+            errorMsg.forEach(element => { //la respuesta del formulario vuelve en formato array por lo danto tiene que utilizarse el metodo forEach
                 toast.error(element.message)
             })
         }
@@ -204,13 +204,13 @@ export default function SignUp() {
                                 type="submit"
                                 variant="contained"
                             >
-                                Sign In
+                                Sign Up
                             </button>
                             <p className='orForm'>or</p>
                             <GoogleSignUp />
                             <Grid container justifyContent="flex-end" className='callToActionSign'>
                                 <Grid item>
-                                    <LinkRouter to='/SignIn' variant="body2" className='underlineNone signRouter'>
+                                    <LinkRouter to='/signin' variant="body2" className='underlineNone signRouter'>
                                         Already have an account? Sign in
                                     </LinkRouter>
                                 </Grid>

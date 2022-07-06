@@ -11,7 +11,8 @@ const {getItinerary, getOneItinerary, addItinerary, modifyItinerary, removeItine
 const userControllers = require('../controllers/usersControllers')
 const { signInUser, signUpUsers, verifyMail, verifyToken, signOut} = userControllers
 
-
+const activitiesControllers = require('../controllers/activitiesControllers')
+const { getActivities, getOneActivity, addActivity, modifyActivity, removeActivity, multiplesActivities, getActivityByIdTinerary } = activitiesControllers
 
 /////////////////////////////CITIES ROUTE////////////////////////////////
 
@@ -69,6 +70,24 @@ Router.route('/auth/signOut')
 
 Router.route('/auth/signInToken')
 .get(passport.authenticate('jwt', { session: false }), verifyToken)
+
+
+//////////////////////////////ACTIVITIES ROUTES/////////////////////////
+
+Router.route('/activities')
+.get(getActivities)
+.post(addActivity)
+
+Router.route('/activities/:id')
+.delete(removeActivity)
+.put(modifyActivity)
+.get(getOneActivity)
+
+Router.route('/multiplesActivities')
+.post(multiplesActivities)
+
+Router.route('/getActivityByIdTinerary/:id')
+.get(getActivityByIdTinerary)
 
 
 module.exports = Router

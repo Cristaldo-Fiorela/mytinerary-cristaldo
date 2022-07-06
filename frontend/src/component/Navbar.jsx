@@ -28,18 +28,18 @@ const pages = [
         name : 'Home'
     },
     {
-        to:  '/Cities',
+        to:  '/cities',
         name : 'Cities'
     }
 ];
 
 const settings = [
     {
-        to: '/SignIn',
+        to: '/signin',
         name: 'Sign In'
     }, 
     {
-        to: '/SignUp',
+        to: '/signup',
         name: 'Sign Up'
     }];
 

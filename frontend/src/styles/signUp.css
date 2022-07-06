@@ -103,3 +103,13 @@
     top: 4px;
     box-shadow: #A62D43 0px 3px 2px,#000 0px 3px 5px;
 }
+
+
+
+
+@media (max-width: 600px) {
+    .containerForm {
+        height: max-content;
+    }
+}
+

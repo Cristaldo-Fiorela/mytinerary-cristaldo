@@ -44,7 +44,9 @@ function Details() {
                             price={itinerary.price} 
                             duration={itinerary.duration} 
                             hashtags={itinerary.hashtags}
+                            like= {itinerary.like}
                             key={itinerary._id}
+                            activities={itinerary.activities}
                             />
                         )) : <NotItinerary/> } 
             </div>

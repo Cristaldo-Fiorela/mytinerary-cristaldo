@@ -127,8 +127,8 @@ export default function SignInSide() {
 
                             <Grid container className='callToActionSign'>
                                 <Grid item>
-                                    <LinkRouter to='/SignUp' variant="body2" className='underlineNone signRouter'>
-                                        "Don't have an account? Sign Up"
+                                    <LinkRouter to='/signup' variant="body2" className='underlineNone signRouter'>
+                                        Don't have an account? Sign Up
                                     </LinkRouter>
                                 </Grid>
                             </Grid>

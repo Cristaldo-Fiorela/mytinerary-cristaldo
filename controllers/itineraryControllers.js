@@ -135,7 +135,7 @@ const itineraryControllers = {
         let error = null
         
         try {
-            itineraries = await Itinerary.find({ idCity : id })
+            itineraries = await Itinerary.find({ idCity : id }).populate('activities')
         } catch (err) {
             error = err
         }
