@@ -144,7 +144,30 @@ const itineraryControllers = {
             success: error ? false : true,
             error: error
         })
-    }
+    },
+
+    likeAndDislikes: async (req, res) => {
+        const id = req.params.id //LLEGA POR PARAMETRO DESDE AXIOS - id de la ciudad 
+        //console.log(req.params.id)
+        const user = req.user.id //LLEGA POR RESPUESTA DE PASSPORT - token de usuario
+        //console.log(user)
+
+        await Itinerary.findOne({ _id: id })
+
+            .then((tinerary) => {
+            
+                if (tinerary.like.includes(user)) {
+                    Itinerary.findOneAndUpdate({ _id: id }, { $pull: { like: user } }, { new: true })//PULL QUITA, SACA
+                        .then((response) => res.json({ success: true, response: response.like }))
+                        .catch((error) => console.log(error))
+                } else {
+                    Itinerary.findOneAndUpdate({ _id: id }, { $push: { like: user } }, { new: true })//PUSH AGREGA
+                        .then((response) => res.json({ success: true, response: response.like }))
+                        .catch((error) => console.log(error))
+                }
+            })
+            .catch((error) => res.json({ success: false, response: error, error: error.message }))
+    },
 
 }
 

@@ -11,7 +11,6 @@ module.exports = passport.use(
         (jwt_payload,done) => {
             //console.log(jwt_payload)
             User.findOne({_id:jwt_payload.id}) //busca id del payload que coincida con el id de user
-
             .then(user => {
                 //console.log(user)
                 if (user) {

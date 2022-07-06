@@ -14,7 +14,7 @@ import { ToastContainer } from 'react-toastify';
 import NavBar from './component/Navbar';
 import Footer from './component/Footer';
 import IndexHome from './pages/IndexHome'
-import CitiesHome from '../src/pages/Cities'
+import CitiesHome from './pages/Cities'
 import Details from './component/Details';
 import SignIn from './component/SignIn';
 import SignUp from './component/SignUp';

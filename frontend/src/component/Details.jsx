@@ -24,6 +24,7 @@ function Details() {
 
     const dataCities = useSelector(store => store.citiesReducer.oneCity) //declaro const donde voy a guardar mi data de la API
     const itineraries = useSelector(store => store.itinerariesReducer.getItinerayByIdCity)
+    //console.log(itineraries)
 
 
     return (

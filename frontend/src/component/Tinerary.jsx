@@ -1,14 +1,17 @@
-import React from 'react'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import React, { useEffect } from 'react'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Avatar from '@mui/material/Avatar'
-import { styled } from '@mui/material/styles';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
-import Activities from './Activities';
+import { styled } from '@mui/material/styles'
+import CardContent from '@mui/material/CardContent'
+import CardActions from '@mui/material/CardActions'
+import Collapse from '@mui/material/Collapse'
+import IconButton from '@mui/material/IconButton'
+import Activities from './Activities'
+import FavoriteIcon from '@mui/icons-material/Favorite'
 
 import '../styles/tinerary.css'
+import itineraryActions from '../redux/actions/itineraryActions'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 
@@ -26,14 +29,33 @@ const ExpandMore = styled((props) => {
 
 function TineraryCard(props) {
 
-    // EXPAND //
+    const dispatch = useDispatch()
+    const loggedUser = useSelector(store => store.usersReducer.user)
+    console.log(loggedUser)
+
+    // INITIAL AND NEW STATES VAR
     const [expanded, setExpanded] = React.useState(false);
-    
+    const [reload, setReload] = React.useState()
+    const [likes, setLikes] = React.useState(props.like)
+    console.log(likes)
 
     const handleExpandClick = () => {
-        setExpanded(!expanded);
+        setExpanded(!expanded)
     };
 
+    useEffect(() => { 
+        dispatch(itineraryActions.getOneItinerary(props._id))
+            .then(res => setLikes(res.like))
+        // eslint-disable-next-line
+    }, [!reload])
+
+
+    const favoriteAction = async (event) => {
+        event.preventDefault()
+        await dispatch(itineraryActions.likeAndDislikes(props._id))
+        //console.log(res)
+        setReload(!reload)
+    }
 
     // CARD //
     return (
@@ -56,7 +78,25 @@ function TineraryCard(props) {
                         <div className='tineraryInfo'>
                             <p>price {props.price}</p>
                             <p>{props.duration}⏲</p>
-                            <button>likes</button>
+                            {loggedUser ?
+
+                            <div className='favoriteButton'>
+                                <IconButton aria-label="add to favorites" onClick={favoriteAction}>
+                            {likes.includes(loggedUser.id) ?
+                                <FavoriteIcon fontSize='large' sx={{color: "#A62D43"}} /> :
+                                <FavoriteIcon fontSize='large' />
+                                }
+                                </IconButton>
+                                    <p>{likes.length}</p>
+                                </div>
+                            :
+                            <div className='favoriteButton'>
+                            <IconButton aria-label="add to favorites">
+                                <FavoriteIcon  fontSize='large' />
+                            </IconButton>
+                                <p>{likes.length}</p>
+                        </div>
+                            }
                         </div>
 
                         <div className='tineraryHashtags' >
@@ -97,6 +137,3 @@ function TineraryCard(props) {
 }
 
 export default TineraryCard
-
-{/* <button>likes {props.like}</button> */}
-

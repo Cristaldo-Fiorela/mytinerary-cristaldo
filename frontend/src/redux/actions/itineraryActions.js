@@ -10,10 +10,12 @@ const itineraryActions = {
         }
     },
 
-    getOneCity: (id) => {
+    getOneItinerary: (id) => {
         return async (dispatch, getState) => {
             const res = await axios.get(`http://localhost:4000/api/itinerary/${id}`)
-            dispatch({type: 'GET_ONE_ITINERARY', payload:res.data.response})
+            return res.data.response
+            // dispatch({type: 'GET_ONE_ITINERARY', payload:res.data.response})
+            
         }
     },
 
@@ -22,8 +24,26 @@ const itineraryActions = {
             const res = await axios.get(`http://localhost:4000/api/getItineraryByIdCity/${id}`)
             dispatch({type: 'GET_ITINERARY_BY_ID_CITY', payload:res.data.response})
         }
-    }
+    }, 
 
+    likeAndDislikes: (tineraryId) => {
+        const token = localStorage.getItem('token')
+        //console.log(token) //llega
+        //console.log(tineraryId) //llega
+        return async () => {
+            try {
+                let res = await axios.put(`http://localhost:4000/api/itinerary/like/${tineraryId}`, {},
+                {headers: {
+                    Authorization: 'Bearer ' + token
+                }
+            })
+            //console.log(res)
+            return res
+            } catch (error) {
+                console.log(error.message)
+            }
+        }
+    },
 }
 
 export default itineraryActions
