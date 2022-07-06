@@ -25,15 +25,15 @@ const ExpandMore = styled((props) => {
 
 
 function TineraryCard(props) {
-    //console.log(props)
-    console.log(props.activities)
 
     // EXPAND //
     const [expanded, setExpanded] = React.useState(false);
+    
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+
 
     // CARD //
     return (
@@ -56,7 +56,7 @@ function TineraryCard(props) {
                         <div className='tineraryInfo'>
                             <p>price {props.price}</p>
                             <p>{props.duration}⏲</p>
-                            <p>likes {props.like}</p>
+                            <button>likes</button>
                         </div>
 
                         <div className='tineraryHashtags' >
@@ -97,4 +97,6 @@ function TineraryCard(props) {
 }
 
 export default TineraryCard
+
+{/* <button>likes {props.like}</button> */}
 
