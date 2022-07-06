@@ -24,8 +24,6 @@ const ExpandMore = styled((props) => {
 }));
 
 
-
-
 function TineraryCard(props) {
     //console.log(props)
     console.log(props.activities)
@@ -80,13 +78,15 @@ function TineraryCard(props) {
                     </CardActions>
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
                         <CardContent>
-                            {props.activities.length > 0 ?
-                            < Activities activities={props.activities}/>
-                            :
-                            <h5 className='comingSoon'>
-                                Coming soon~
-                            </h5> 
-                            }
+                                <div className='activitiesContainer'>
+                                    {props.activities.length > 0 ?
+                                        < Activities activities={props.activities} />
+                                        :
+                                        <h5 className='comingSoon'>
+                                            Coming soon~
+                                        </h5>
+                                    }
+                                </div>
                         </CardContent>
                     </Collapse>
                 </div>
