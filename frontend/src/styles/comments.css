@@ -1,0 +1,56 @@
+.commentsContainer{
+    background-color: #f2f2f2dc;
+    border-radius: 20px;
+    width: 90%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: .5rem;
+}
+
+.containerComments{
+    width: 80%;
+}
+.editAndDelete {
+    display: flex;
+    height: max-content;
+    width: auto;
+}
+.commentBox{
+    background-color: #ffd1d3;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .8rem;
+    height: 5vh;
+    border-radius: 20px;
+}
+.comment{
+    display: flex;
+    height: 60%;
+    width: 80%;
+    align-items: center;
+    gap: 1rem;
+}
+.userNameComment{
+    font-family: 'Caveat', cursive;
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.callToActionComments{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 5vh !important;
+    color: #A62D43;
+}
+
+.callToActionComments:hover{
+    color: #e33757;
+    
+}

@@ -28,7 +28,7 @@ const itineraryActions = {
 
     likeAndDislikes: (tineraryId) => {
         const token = localStorage.getItem('token')
-        //console.log(token) //llega
+        console.log(token) //llega
         //console.log(tineraryId) //llega
         return async () => {
             try {

@@ -12,6 +12,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 import '../styles/tinerary.css'
 import itineraryActions from '../redux/actions/itineraryActions'
 import { useDispatch, useSelector } from 'react-redux'
+import Comments from './Comments'
+import CommentsWithOutUser from './CommentsWithOutLoggedUser'
 
 
 
@@ -31,14 +33,13 @@ function TineraryCard(props) {
 
     const dispatch = useDispatch()
     const loggedUser = useSelector(store => store.usersReducer.user)
-    console.log(loggedUser)
 
     // INITIAL AND NEW STATES VAR
     const [expanded, setExpanded] = React.useState(false);
-    const [reload, setReload] = React.useState()
+    const [reload, setReload] = React.useState(false)
     const [likes, setLikes] = React.useState(props.like)
     console.log(likes)
-
+    
     const handleExpandClick = () => {
         setExpanded(!expanded)
     };
@@ -55,7 +56,7 @@ function TineraryCard(props) {
         await dispatch(itineraryActions.likeAndDislikes(props._id))
         //console.log(res)
         setReload(!reload)
-    }
+    }   
 
     // CARD //
     return (
@@ -78,25 +79,27 @@ function TineraryCard(props) {
                         <div className='tineraryInfo'>
                             <p>price {props.price}</p>
                             <p>{props.duration}⏲</p>
-                            {loggedUser ?
 
+                            {loggedUser ?
                             <div className='favoriteButton'>
                                 <IconButton aria-label="add to favorites" onClick={favoriteAction}>
-                            {likes.includes(loggedUser.id) ?
-                                <FavoriteIcon fontSize='large' sx={{color: "#A62D43"}} /> :
-                                <FavoriteIcon fontSize='large' />
-                                }
+                                    {likes.includes(loggedUser.id) ?
+                                        <FavoriteIcon fontSize='large' sx={{color: "#A62D43"}} /> 
+                                        :
+                                        <FavoriteIcon fontSize='large' />
+                                    }
                                 </IconButton>
                                     <p>{likes.length}</p>
-                                </div>
+                            </div>
                             :
                             <div className='favoriteButton'>
-                            <IconButton aria-label="add to favorites">
-                                <FavoriteIcon  fontSize='large' />
-                            </IconButton>
-                                <p>{likes.length}</p>
-                        </div>
+                                <IconButton aria-label="add to favorites">
+                                    <FavoriteIcon  fontSize='large' />
+                                </IconButton>
+                                    <p>{likes.length}</p>
+                            </div>
                             }
+                            
                         </div>
 
                         <div className='tineraryHashtags' >
@@ -112,19 +115,29 @@ function TineraryCard(props) {
                             onClick={handleExpandClick}
                             aria-expanded={expanded}
                             aria-label="show more"
+                            className='expandButton'
                         >
-                            <ExpandMoreIcon />
+                            <ExpandMoreIcon fontSize='large' sx={{color: "#A62D43"}}/>
                         </ExpandMore>
                     </CardActions>
                     <Collapse in={expanded} timeout="auto" unmountOnExit>
                         <CardContent>
-                                <div className='activitiesContainer'>
-                                    {props.activities.length > 0 ?
-                                        < Activities activities={props.activities} />
-                                        :
-                                        <h5 className='comingSoon'>
+                                <div className='expandContainer'>
+                                    <h4 className='sectionTitle'>Activities</h4>
+                                    <div className='activitiesContainer'>
+                                        {props.activities.length > 0 ?
+                                            < Activities activities={props.activities} />
+                                            :
+                                            <h5 className='comingSoon'>
                                             Coming soon~
-                                        </h5>
+                                            </h5>
+                                        }
+                                    </div>
+                                    <h4 className='sectionTitle'>Comments</h4>
+                                    {!loggedUser ?
+                                    < CommentsWithOutUser comments={props} />
+                                    :
+                                    < Comments comments={props} />
                                     }
                                 </div>
                         </CardContent>

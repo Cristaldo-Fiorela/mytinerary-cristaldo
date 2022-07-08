@@ -38,7 +38,7 @@ const activitiesControllers = {
     },
 
     addActivity:async (req,res) => {
-        const {idTinerary, activitiesName, activitiesPhotos, comments}=req.body.data
+        const {activitiesName, activitiesPhotos}=req.body.data
         let activity
         let error = null
 

@@ -14,6 +14,12 @@ const { signInUser, signUpUsers, verifyMail, verifyToken, signOut} = userControl
 const activitiesControllers = require('../controllers/activitiesControllers')
 const { getActivities, getOneActivity, addActivity, modifyActivity, removeActivity, multiplesActivities, getActivityByIdTinerary } = activitiesControllers
 
+const commentsControllers = require('../controllers/commentsControllers')
+const {modifyComment, removeComment, addComment} = commentsControllers
+
+
+
+
 /////////////////////////////CITIES ROUTE////////////////////////////////
 
 
@@ -49,11 +55,6 @@ Router.route('/multiplesItinerary')
 Router.route('/getItineraryByIdCity/:id')
 .get(getItineraryByIdCity)
 
-////////////////////////////LIKES & DISLIKES /////////////////////////////
-
-Router.route('/itinerary/like/:id')
-.put(passport.authenticate('jwt', {session: false}), likeAndDislikes)
-
 
 /////////////////////////////USER ROUTE////////////////////////////////
 
@@ -73,7 +74,7 @@ Router.route('/auth/signInToken')
 .get(passport.authenticate('jwt', { session: false }), verifyToken)
 
 
-//////////////////////////////ACTIVITIES ROUTES/////////////////////////
+////////////////////ACTIVITIES ROUTES/////////////////////////
 
 Router.route('/activities')
 .get(getActivities)
@@ -89,6 +90,21 @@ Router.route('/multiplesActivities')
 
 Router.route('/getActivityByIdTinerary/:id')
 .get(getActivityByIdTinerary)
+
+////////////////////////////LIKES & DISLIKES /////////////////////////////
+
+Router.route('/itinerary/like/:id')
+.put(passport.authenticate('jwt', {session: false}), likeAndDislikes)
+
+
+//////////////////////COMMENT ROUTES /////////////////////
+
+Router.route('/itinerary/comment/:id')
+.post(passport.authenticate('jwt',{ session: false }), removeComment)
+.put(passport.authenticate('jwt',{ session: false }), modifyComment)
+
+Router.route('/itinerary/comment')
+.post(passport.authenticate('jwt',{ session: false }),addComment)
 
 
 module.exports = Router

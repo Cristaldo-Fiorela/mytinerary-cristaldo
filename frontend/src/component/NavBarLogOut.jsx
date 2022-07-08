@@ -175,7 +175,7 @@ const LogOutNavBar = () => {
                                 <LinkRouter
                                 to={page.to}
                                 key={index}
-                                onClick={()=>{handleCloseUserMenu(); LogOut()}}
+                                onClick={()=>{handleCloseUserMenu(); LogOut(); ScrollToTop()}}
                                 className='underlineNone colorMenu' 
                                 >
                                     <MenuItem>
