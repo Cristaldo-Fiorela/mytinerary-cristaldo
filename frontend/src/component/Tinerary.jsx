@@ -13,7 +13,6 @@ import '../styles/tinerary.css'
 import itineraryActions from '../redux/actions/itineraryActions'
 import { useDispatch, useSelector } from 'react-redux'
 import Comments from './Comments'
-import CommentsWithOutUser from './CommentsWithOutLoggedUser'
 
 
 
@@ -38,7 +37,6 @@ function TineraryCard(props) {
     const [expanded, setExpanded] = React.useState(false);
     const [reload, setReload] = React.useState(false)
     const [likes, setLikes] = React.useState(props.like)
-    console.log(likes)
     
     const handleExpandClick = () => {
         setExpanded(!expanded)
@@ -134,11 +132,9 @@ function TineraryCard(props) {
                                         }
                                     </div>
                                     <h4 className='sectionTitle'>Comments</h4>
-                                    {!loggedUser ?
-                                    < CommentsWithOutUser comments={props} />
-                                    :
-                                    < Comments comments={props} />
-                                    }
+
+                                    < Comments allProps={props} />
+                                    
                                 </div>
                         </CardContent>
                     </Collapse>

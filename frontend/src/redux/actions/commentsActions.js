@@ -53,7 +53,6 @@ const commentsActions = {
                     success: res.data.success
                 }
             })
-
             return res
         }
     },

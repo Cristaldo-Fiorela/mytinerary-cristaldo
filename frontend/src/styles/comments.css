@@ -2,19 +2,26 @@
     background-color: #f2f2f2dc;
     border-radius: 20px;
     width: 90%;
-    height: fit-content;
+    height: max-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    gap: .5rem;
+    gap: 2rem;
+    padding: 1rem;
 }
 
-.containerComments{
-    width: 80%;
+.containerComments, .divCommentComponent{
+    width: 90%;
+}
+.divCommentComponent{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .editAndDelete {
     display: flex;
+    flex-direction: column;
     height: max-content;
     width: auto;
 }
@@ -29,6 +36,19 @@
     height: 5vh;
     border-radius: 20px;
 }
+
+.commentBoxWithBtn{
+    background-color: #ffd1d3;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: .8rem;
+    height: 5vh;
+    border-radius: 20px;
+}
+
 .comment{
     display: flex;
     height: 60%;
@@ -36,6 +56,18 @@
     align-items: center;
     gap: 1rem;
 }
+.commentWithButtons{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+textarea{
+    resize: none
+}
+
+
 .userNameComment{
     font-family: 'Caveat', cursive;
     font-size: 3vh;

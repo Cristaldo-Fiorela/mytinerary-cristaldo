@@ -29,7 +29,7 @@ const itineraryControllers = {
         let error = null
 
         try {
-            itinerary = await Itinerary.findOne({_id:id})
+            itinerary = await Itinerary.findOne({_id:id}).populate("comments.userId", {firstName: 1, lastName: 1, userPhoto:1})
         } catch(err) {
             error = err
             console.log(error)
@@ -135,7 +135,7 @@ const itineraryControllers = {
         let error = null
         
         try {
-            itineraries = await Itinerary.find({ idCity : id }).populate('activities').populate("comments.userId", {firstName: 1, lastName: 1, userPhoto:1})
+            itineraries = await Itinerary.find({ idCity : id }).populate('activities')
         } catch (err) {
             error = err
         }

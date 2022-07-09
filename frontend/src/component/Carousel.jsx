@@ -1,5 +1,4 @@
 import { React} from "react";
-import { useEffect } from "react";
 import { connect } from "react-redux";
 import citiesActions from "../redux/actions/citiesActions";
 import { useSelector } from 'react-redux';
