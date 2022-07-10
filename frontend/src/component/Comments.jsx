@@ -7,8 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Avatar from '@mui/material/Avatar'
 import { toast } from 'react-toastify';
 
-
-
 // STYLES
 import '../styles/comments.css'
 import commentsActions from '../redux/actions/commentsActions';
@@ -39,7 +37,7 @@ function Comments(props) {
 
     useEffect(() => {
 
-        dispatch(itineraryActions.getOneItinerary(itineraries)) //id de itinerario
+        dispatch(itineraryActions.getOneItinerary(itineraries)) 
             .then(response => setComment(response.comments))
         //eslint-disable-next-line
     }, [!reload])
@@ -125,7 +123,7 @@ function Comments(props) {
                 <div className='commentsContainer'>
                     {comment.map(comment =>
                         <div key={comment._id} className='containerComments'>
-                            {comment.userId._id !== loggedUser.id ? // EL USUARIO LOGEADO NO ES DUEÑO DEL COMENTARIO
+                            {comment.userId._id !== loggedUser.id ? 
                                 <div className='commentBoxNoUserLog'>
                                     <div>
                                         <Avatar
@@ -140,7 +138,7 @@ function Comments(props) {
 
                                     </div>
                                 </div>
-                                : //  USUARIO LOGEADO DUEÑO DEL COMENTARIO
+                                : 
                                 <>
                                     <div className='commentBoxWithBtn' key={comment._id}>
                                         <div >
@@ -175,7 +173,7 @@ function Comments(props) {
                         </div>
                         <h5 onClick={ScrollToTop} className='callToActionComments'>Feel free to comment!</h5>
                 </div>
-                : // SI NO HAY USUARIO CONECTADO
+                : 
                 <div className='commentsContainer'>
                     {comment.map(comment =>
                         <div key={comment._id} className='commentBox'>

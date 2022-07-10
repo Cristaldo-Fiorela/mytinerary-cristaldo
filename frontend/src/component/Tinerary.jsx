@@ -1,4 +1,9 @@
+//REACT
 import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify';
+
+//MUI
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import Avatar from '@mui/material/Avatar'
 import { styled } from '@mui/material/styles'
@@ -6,14 +11,15 @@ import CardContent from '@mui/material/CardContent'
 import CardActions from '@mui/material/CardActions'
 import Collapse from '@mui/material/Collapse'
 import IconButton from '@mui/material/IconButton'
-import Activities from './Activities'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 
+//STYLES
 import '../styles/tinerary.css'
+
+//COMPONENTS AND ACTIONS
 import itineraryActions from '../redux/actions/itineraryActions'
-import { useDispatch, useSelector } from 'react-redux'
+import Activities from './Activities'
 import Comments from './Comments'
-import { toast } from 'react-toastify';
 
 
 
@@ -54,7 +60,6 @@ function TineraryCard(props) {
     const favoriteAction = async (event) => {
         event.preventDefault()
         const res = await dispatch(itineraryActions.likeAndDislikes(props._id))
-        //console.log(res)
         setReload(!reload)
 
         

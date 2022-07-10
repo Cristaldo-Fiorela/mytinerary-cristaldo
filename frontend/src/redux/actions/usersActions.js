@@ -1,16 +1,16 @@
-import axios from "axios";   //importamos axios porque vamos a fechear
+import axios from "axios";   
 
 
 const usersActions = {
 
-    signUpUsers: (userData) => { //funcion
-        return async (dispatch, getState) => { //propiedades de despacho y estado
+    signUpUsers: (userData) => { 
+        return async (dispatch, getState) => { 
             const res = await axios.post('http://localhost:4000/api/auth/signUp', {userData})
             dispatch({
                 type: 'MESSAGE', 
                 payload:{ 
                     view: true, 
-                    message: res.data.message, // SNACKBAR
+                    message: res.data.message, 
                     success: res.data.success
                 }})
             return res
@@ -53,7 +53,6 @@ const usersActions = {
 
 
     verifyToken: (token) => {
-        //console.log(token)
 
         return async (dispatch, getState) => {
             await axios.get('http://localhost:4000/api/auth/signInToken', {

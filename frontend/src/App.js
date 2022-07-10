@@ -69,8 +69,6 @@ function App() {
         <Route path='/' element={<IndexHome />} />
         <Route path='/cities' element={<CitiesHome />} />
         <Route path='/cities/:idCity' element={<Details />} />
-        {/* <Route path='/SignUp' element={<SignUp />} />
-        <Route path='/SignIn' element={<SignIn />} /> */}
         {loggedUser ? <Route path='/signup' element={<IndexHome/>} /> : <Route path='/signup' element={<SignUp />} />}
         {loggedUser ? <Route path='/signin' element={<IndexHome/>} /> : <Route path='/signin' element={<SignIn />} />}
         </Routes>

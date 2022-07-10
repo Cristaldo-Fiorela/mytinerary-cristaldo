@@ -1,24 +1,23 @@
-require('dotenv').config()  //libreria dotenv
-require('./config/config') //llamo a configuracion de mongo
+require('dotenv').config() 
+require('./config/config') 
 
-const cors = require ('cors') //importo mi cors de seguridad metodo
+const cors = require ('cors') 
 const passport = require('passport')
 const express = require ('express')
 
 
 const Router = require('./routes/citiesRoutes')
 const PORT  = 4000 
-// process.env.SERVER_PORT
 
 
 const app = express()
 
 
 // Middlewares
-app.use(express.json()) //transporta la data a front convertido en json
-app.use(cors()) // metodo
+app.use(express.json()) 
+app.use(cors()) 
 app.use(passport.initialize())
-app.use('/api', Router) //conecta la app con el endpoint
+app.use('/api', Router) 
 
 app.set ('port', PORT)
 

@@ -6,16 +6,13 @@ const citiesControllers = {
 
     getCities: async (req, res) => {
     
-    // primera parte de funcion donde se declaran los datos
         let cities 
-        let error = null //valor inicial de error
+        let error = null
     
-    // parte de prueba "try" (intento) catch (atrapa errores)
         try {
             cities = await City.find()
-        } catch (err) {error = err} // si cacheo el error puedo hacer cosas con el error
+        } catch (err) {error = err} 
     
-    // parte de la respuesta a la segunda parte de la funcion -> try catch
         res.json({
             response: error ? 'ERROR' : { cities },
             success: error ? false : true,
@@ -96,7 +93,7 @@ const citiesControllers = {
 
     multiplesCities: async (req, res) => {
         let city = []
-        const data = req.body.data //almaceno en la constante data la informacion que le pedi al body
+        const data = req.body.data 
         let error = null
 
         try {

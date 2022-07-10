@@ -1,12 +1,12 @@
-import axios from "axios";   //importamos axios porque vamos a fechear
+import axios from "axios";   
 
 
 const citiesActions = {
 
-    getCities: () => { //funcion
-        return async (dispatch, getState) => { //propiedades de despacho y estado
+    getCities: () => {
+        return async (dispatch, getState) => { 
             const res = await axios.get('http://localhost:4000/api/cities')
-            dispatch({type: 'GET_CITIES', payload:res.data.response.cities}) //despacho con el tipo de caso de mi reducer y el payload que es la respuesta en formato de objeto
+            dispatch({type: 'GET_CITIES', payload:res.data.response.cities}) 
         }
     },
 

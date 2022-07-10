@@ -1,8 +1,8 @@
 const nodemailer = require('nodemailer')
-const { google } = require('googleapis') //desestructuro y me saco google de esete paquete que maneja las config de gmail que es google apis
+const { google } = require('googleapis') 
 const OAuth2 = google.auth.OAuth2
 
-const sendVerification = async (email, string) => { //controlador
+const sendVerification = async (email, string) => { 
 
     const myOAuth2Client = new OAuth2(
         process.env.GOOGLE_CLIENT_ID,
@@ -28,8 +28,7 @@ const sendVerification = async (email, string) => { //controlador
             accessToken: accessToken
         },
         tls: {
-            rejectUnauthorized: false //configuracion predeterminada que no rechaza la falta de verificacion
-            // evita que lo bloquee el antivirus
+            rejectUnauthorized: false 
         }
     })
 

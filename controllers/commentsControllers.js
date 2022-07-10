@@ -4,8 +4,8 @@ const commentsControllers = {
 
     addComment: async (req, res) => {
         
-        const { tinerary, comment } = req.body.comment //LLEGA POR AXIOS - body de postman y de la estructura de mis comments
-        const user = req.user._id //LLEGA POR PASSPORT - token
+        const { tinerary, comment } = req.body.comment 
+        const user = req.user._id 
         
         try {
             const newComment = await Itinerary

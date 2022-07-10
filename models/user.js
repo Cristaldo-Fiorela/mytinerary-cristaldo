@@ -7,7 +7,7 @@ const userSchema =  new mongoose.Schema({
     userPhoto: {type:String, required:true},
     email:{type:String, required:true},
     password: [{type:String, required:true}],
-    from:{type:Array}, // hace referencia al metodo con el que nos registremos (FB, GOOGLE, NUESTRO SIGN IN)
+    from:{type:Array}, 
     uniqueString: {type:String, required:true},
     verification: {type:Boolean, required:true}
 })

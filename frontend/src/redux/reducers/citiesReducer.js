@@ -5,20 +5,20 @@ const initialState = {
 }
 
 
-const citiesReducer = (state = initialState, action) => { //parametros de la funciona iniciada dentro de la constante
+const citiesReducer = (state = initialState, action) => { 
     
-    switch (action.type) { //condicion de mi switch
+    switch (action.type) { 
         case 'GET_CITIES':
             return{
                 ...state,
-                cities: action.payload, //llena mis arrays vacios con el payload y lo retorna si la condicion se cumple
-                cityFiltered: action.payload // la cargo con todo el array porque tengo q hacer primero una busqueda porq sino de entrada no me aparecen
+                cities: action.payload, 
+                cityFiltered: action.payload 
             }
         
         case 'GET_ONE_CITY': 
             return {
                 ...state,
-                oneCity: action.payload, //llena mis arrays vacios con el payload y lo retorna si la condicion se cumple
+                oneCity: action.payload, 
             }
 
         case 'FILTER_CITIES':
@@ -26,12 +26,12 @@ const citiesReducer = (state = initialState, action) => { //parametros de la fun
             let filterCities = state.cities.filter(city => city.name.toLowerCase().startsWith(action.payload.trim().toLowerCase()))
 
             return {
-                ...state, // tomo el estado incial de mi array
-                cityFiltered: filterCities // le guardo mi nuevos datos
+                ...state, 
+                cityFiltered: filterCities 
             }
         
         default:
-            return state //array vacio inicial. el de default
+            return state 
         
     }
 }

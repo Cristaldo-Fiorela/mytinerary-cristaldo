@@ -1,8 +1,12 @@
+//REACT
 import React from "react";
+
+//MUI
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
+//STYLES
 import '../styles/cities.css'
 
 function SearchError () {

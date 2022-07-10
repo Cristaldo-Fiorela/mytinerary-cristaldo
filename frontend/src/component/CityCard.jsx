@@ -1,11 +1,17 @@
+//REACT
 import * as React from 'react';
+import { Link as LinkRouter } from 'react-router-dom';
+import { useDispatch, useSelector  } from 'react-redux';
+
+// MUI
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { Link as LinkRouter } from 'react-router-dom';
-import SearchError from './SearchError';
-import { useDispatch, useSelector  } from 'react-redux';
+
+//ACTIONS AND COMPONENTS
 import citiesActions from '../redux/actions/citiesActions';
+import SearchError from './SearchError';
+
 
 
 
@@ -32,7 +38,7 @@ function DisplayCardCities() {
         // eslint-disable-next-line
     },[search])
 
-    const cityFiltered = useSelector (store => store.citiesReducer.cityFiltered) // "store" HACE REFERENCIA AL STORE Q ESTA EN APP.JS
+    const cityFiltered = useSelector (store => store.citiesReducer.cityFiltered) 
 
 
     return (

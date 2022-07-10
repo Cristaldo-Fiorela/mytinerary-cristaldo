@@ -18,4 +18,4 @@ const itinerarySchema = new mongoose.Schema({
 })
 
 const Itinerary =  mongoose.model('itinerary', itinerarySchema) 
-module.exports = Itinerary // se exporta en los controladores
+module.exports = Itinerary 

@@ -6,16 +6,13 @@ const itineraryControllers = {
 
     getItinerary: async (req, res) => {
     
-    // primera parte de funcion donde se declaran los datos
         let itinerary 
-        let error = null //valor inicial de error
+        let error = null 
     
-    // parte de prueba "try" (intento) catch (atrapa errores)
         try {
             itinerary = await Itinerary.find()
-        } catch (err) {error = err} // si cacheo el error puedo hacer cosas con el error
+        } catch (err) {error = err} 
     
-    // parte de la respuesta a la segunda parte de la funcion -> try catch
         res.json({
             response: error ? 'ERROR' : { itinerary },
             success: error ? false : true,
@@ -102,7 +99,7 @@ const itineraryControllers = {
 
     multiplesItinerary: async (req, res) => {
         let itinerary = []
-        const data = req.body.data //almaceno en la constante data la informacion que le pedi al body
+        const data = req.body.data 
         let error = null
 
         try {
@@ -147,10 +144,8 @@ const itineraryControllers = {
     },
 
     likeAndDislikes: async (req, res) => {
-        const id = req.params.id //LLEGA POR PARAMETRO DESDE AXIOS - id de la ciudad 
-        //console.log(req.params.id)
-        const user = req.user.id //LLEGA POR RESPUESTA DE PASSPORT - token de usuario
-        //console.log(user)
+        const id = req.params.id 
+        const user = req.user.id 
 
         await Itinerary.findOne({ _id: id })
 

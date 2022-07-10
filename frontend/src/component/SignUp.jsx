@@ -39,7 +39,6 @@ export default function SignUp() {
     let orderedCountries = countries.sort()
 
 
-    //GUARA LOS DATOS QUE PONE EL DATO EN EL FRONT
     const [firstName, setFirstName] = React.useState("")
     const [lastName, setLastName] = React.useState("")
     const [email, setEmail] = React.useState("")
@@ -50,7 +49,7 @@ export default function SignUp() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    //
+
     const handleSubmit = async (event) => {
         event.preventDefault()
         const userData = {
@@ -67,7 +66,7 @@ export default function SignUp() {
         const errorMsg = res.data.message
 
         if (res.data.from === 'validator') {
-            errorMsg.forEach(element => { //la respuesta del formulario vuelve en formato array por lo danto tiene que utilizarse el metodo forEach
+            errorMsg.forEach(element => { 
                 toast.error(element.message)
             })
         }
@@ -79,8 +78,6 @@ export default function SignUp() {
                 toast.error(res.data.message)
             }
         
-        // VALIDACION
-
         setFirstName('')
         setLastName('')
         setEmail('')

@@ -1,10 +1,15 @@
-import { Button } from "@mui/material";
+//REACT
 import React from "react";
-import '../styles/footer.css'
+import { Link as LinkRouter } from "react-router-dom";
+
+// MUI
+import { Button } from "@mui/material";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { Link as LinkRouter } from "react-router-dom";
+
+//STYLES
+import '../styles/footer.css'
 
 
 function Footer() {

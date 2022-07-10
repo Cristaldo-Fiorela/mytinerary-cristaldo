@@ -1,11 +1,12 @@
+//REACT
 import React, { useEffect } from "react"
-
 import jwt_decode from 'jwt-decode'
 import { useDispatch } from "react-redux"
 import usersActions from "../redux/actions/usersActions"
 import { useNavigate } from "react-router-dom"
 import { toast } from 'react-toastify';
 
+//STYLES
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function GoogleSignUp() {
@@ -13,10 +14,8 @@ export default function GoogleSignUp() {
     const navigate = useNavigate()
 
     async function handleCallbackResponse(response) {
-        //console.log(response.credential)
         
         let userObject = jwt_decode(response.credential)
-        //console.log(userObject)
         
         const res = await dispatch(usersActions.signUpUsers({
             firstName: userObject.given_name,
@@ -27,7 +26,6 @@ export default function GoogleSignUp() {
             from: 'google',
             country:'internet'
         }))
-        //console.log(res)
 
         if (res.data.from === 'signup')
         if (res.data.success) {
@@ -42,7 +40,6 @@ export default function GoogleSignUp() {
 useEffect(() => {
     /* global google */
     google.accounts.id.initialize({
-        //process.env.CLIENT_ID,
         client_id: '825877478129-ji9qsrs31e9gl4e2eppqon4n5ide92o7.apps.googleusercontent.com',
         context: 'signup', 
         callback: handleCallbackResponse

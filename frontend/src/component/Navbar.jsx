@@ -55,8 +55,8 @@ const ResponsiveAppBar = () => {
         })
     }
 
-    const [anchorElNav, setAnchorElNav] = React.useState(null); // componente funcional con hook
-    const [anchorElUser, setAnchorElUser] = React.useState(null); // escuchar el cambio de estado, el valor "null" hace referencia al valor q va a pasar
+    const [anchorElNav, setAnchorElNav] = React.useState(null); 
+    const [anchorElUser, setAnchorElUser] = React.useState(null); 
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -79,8 +79,6 @@ const ResponsiveAppBar = () => {
         <AppBar position="sticky" className='navbar-color'>
             <Container maxWidth="xl">
                 <Toolbar  disableGutters>
-
-                    {/* chiquito */}
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                     <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} />
@@ -127,7 +125,6 @@ const ResponsiveAppBar = () => {
                         </Menu>
                     </Box>
 
-                    {/* MEDIANO */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} />
                         {pages.map((page, index) => (
@@ -145,7 +142,6 @@ const ResponsiveAppBar = () => {
                         ))}
                     </Box>
 
-                    {/* MENU HAMBURGUESA */}
 
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">

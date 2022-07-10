@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { Link as LinkRouter } from "react-router-dom";
 
-// OWN COMPONENTS
+// COMPONENTS
 import usersActions from '../redux/actions/usersActions';
 import GoogleSignIn from './GoogleSignIn';
 
@@ -27,8 +27,6 @@ const theme = createTheme();
 
 export default function SignInSide() {
 
-
-    //GUARA LOS DATOS QUE PONE EL DATO EN EL FRONT
         const [email,setEmail] = React.useState("")
         const [password,setPassword] = React.useState("")
     
@@ -43,7 +41,6 @@ export default function SignInSide() {
                 from: 'form-SignUp'
             }
             const res = await dispatch(usersActions.signInUser(loggedUser))
-            //console.log(res)
 
             if (res.data.success) {
                     toast.success(res.data.message)

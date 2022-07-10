@@ -1,13 +1,17 @@
+//REACT
 import { React, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import TineraryCard from "./Tinerary";
 import { useDispatch, useSelector } from "react-redux";
+
+//ACTIONS AND COMPONENT
 import itineraryActions from '../redux/actions/itineraryActions'
+import citiesActions from "../redux/actions/citiesActions";
+import TineraryCard from "./Tinerary";
 import NotItinerary from "./NotItinerary";
 
-
+//STYLES 
 import '../styles/details.css'
-import citiesActions from "../redux/actions/citiesActions";
+
 
 function Details() {
 
@@ -15,14 +19,14 @@ function Details() {
     const dispatch = useDispatch()
 
 
-    useEffect(() => { //Acepta una función que contiene código imperativo, posiblemente código efectivo.
+    useEffect(() => { 
 
         dispatch(citiesActions.getOneCity(idCity))
         dispatch(itineraryActions.getItinerayByIdCity(idCity))
         // eslint-disable-next-line
     }, [])
 
-    const dataCities = useSelector(store => store.citiesReducer.oneCity) //declaro const donde voy a guardar mi data de la API
+    const dataCities = useSelector(store => store.citiesReducer.oneCity) 
     const itineraries = useSelector(store => store.itinerariesReducer.getItinerayByIdCity)
 
 
