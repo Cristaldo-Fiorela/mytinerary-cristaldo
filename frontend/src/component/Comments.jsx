@@ -115,7 +115,6 @@ function Comments(props) {
         }
     }
 
-    console.log(comment)
 
     return (
         <>
