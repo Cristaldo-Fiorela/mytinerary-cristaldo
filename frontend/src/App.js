@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 // EXTERNAL LIBRERY
 import ArrowCircleUpRoundedIcon from '@mui/icons-material/ArrowCircleUpRounded';
 import { ToastContainer } from 'react-toastify';
+
 // COMPONENTS
 import NavBar from './component/Navbar';
 import Footer from './component/Footer';

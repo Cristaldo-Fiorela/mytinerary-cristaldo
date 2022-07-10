@@ -158,11 +158,19 @@ const itineraryControllers = {
             
                 if (tinerary.like.includes(user)) {
                     Itinerary.findOneAndUpdate({ _id: id }, { $pull: { like: user } }, { new: true })//PULL QUITA, SACA
-                        .then((response) => res.json({ success: true, response: response.like }))
+                        .then((response) => res.json({ 
+                                                        success: true, 
+                                                        response: response.like,
+                                                        message: "We sorry u don't like it anymore💔"
+                                                    }))
                         .catch((error) => console.log(error))
                 } else {
                     Itinerary.findOneAndUpdate({ _id: id }, { $push: { like: user } }, { new: true })//PUSH AGREGA
-                        .then((response) => res.json({ success: true, response: response.like }))
+                        .then((response) => res.json({ 
+                                                        success: true, 
+                                                        response: response.like,
+                                                        message:'Thank you for your like 💖'
+                                                    }))
                         .catch((error) => console.log(error))
                 }
             })

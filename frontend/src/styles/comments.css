@@ -9,44 +9,61 @@
     justify-content: space-around;
     gap: 2rem;
     padding: 1rem;
+    margin-bottom: 1rem;
+
 }
 
 .containerComments, .divCommentComponent{
     width: 90%;
+
 }
 .divCommentComponent{
     display: flex;
     flex-direction: row;
     justify-content: center;
+
 }
 .editAndDelete {
     display: flex;
-    flex-direction: column;
-    height: max-content;
-    width: auto;
+    gap: 1vh;
+    flex-direction: row-reverse;
+    padding-left: 1vh;
+    padding-right: 1vh;
 }
-.commentBox{
+.commentBox, .commentBoxWithOutUser{
     background-color: #ffd1d3;
     height: fit-content;
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     gap: .8rem;
-    height: 5vh;
+    border-radius: 20px;
+}
+
+.commentBoxNoUserLog{
+    background-color: #f1dac4;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .8rem;
     border-radius: 20px;
 }
 
 .commentBoxWithBtn{
     background-color: #ffd1d3;
-    height: fit-content;
+    height: max-content;
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     gap: .8rem;
-    height: 5vh;
-    border-radius: 20px;
+    border-radius: 30px;
+
 }
 
 .comment{
@@ -56,6 +73,22 @@
     align-items: center;
     gap: 1rem;
 }
+
+.commentTextNoUser{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    word-break: break-word;
+    color: #432121;
+    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 2vh;
+
+
+}
+
+
 .commentWithButtons{
     display: flex;
     flex-direction: row-reverse;
@@ -64,14 +97,25 @@
 }
 
 textarea{
-    resize: none
+    resize: none;
+    width: 70%;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 2vh;
+    text-align: center;
+    background-color: #efddde;
+    border-color: #F2F2F2;
+    border-radius: 30px;
+    border-width: .2rem;
+    color: #432121;
+    font-weight: bold;
+    outline-color: #ff5a78;
 }
-
-
 .userNameComment{
     font-family: 'Caveat', cursive;
     font-size: 3vh;
     font-weight: bold;
+    width: auto;
+    padding-left: 1vh;
 }
 
 .callToActionComments{
@@ -84,5 +128,157 @@ textarea{
 
 .callToActionComments:hover{
     color: #e33757;
-    
 }
+
+.sendCommentContainer{
+    width: 90%;
+    height: 10vh;
+    background-color: #285954;
+    background-color: #9FBFB9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    gap: .5rem;
+}
+
+.textareaSendComment{
+    background-color: #cbddda;
+    border-color: #9FBFB9;
+    border-radius: 30px;
+    border-width: .2rem;
+    outline-color: #65d6c1;
+    width: 80%;
+}
+
+
+/* From uiverse.io by @Custyyyy */
+.buttonComment {
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: #625f5f;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    min-height: 3rem;
+    padding-left: .8rem;
+    padding-right: .8rem;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: 5rem;
+    border-radius: 30px;
+}
+
+.buttonComment:hover, .buttonComment:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: #e33757;
+}
+
+.buttonComment:hover {
+    transform: translateY(-1px);
+}
+
+.buttonComment:active {
+    background-color: #F0F0F1;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
+
+
+
+/* //////////MEDIA Q    ////////////// */
+
+
+@media (max-width: 786px) {
+    .commentsContainer{
+        width: 84%;
+    }
+    .commentBox, .commentBoxNoUserLog, .commentWithButtons{
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    .avatarComment{
+        width: 8vh !important;
+        height: 8vh !important;
+        margin-top: .5rem;
+    }
+    .comment{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+    }
+    .userNameComment{
+        font-size: 4vh;
+        text-align: center;
+    }
+    .commentTextNoUser{
+        justify-content: center;
+        padding-bottom: 2rem;
+        text-align: center;
+    }
+    .callToActionComments{
+        font-size: 4vh !important;
+        text-align: center;
+    }
+    .commentBoxWithBtn{
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    .textareaComment{
+        height: max-content;
+        width: 90%;
+        align-self: center;
+        margin-top: 1rem;
+    }
+    .editAndDelete{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+    }
+    .sendCommentContainer{
+        display: flex;
+        flex-direction: column;
+        padding: .2rem;
+        height: fit-content;
+    }
+    .textareaSendComment{
+        width: 90%;
+        height: 10vh;
+    }
+    .buttonComment{
+        margin-bottom: 1rem;
+    }
+}
+
+
+@media (max-width: 321px) {
+    .commentsContainer{
+        width: 90%;
+        padding: .5rem;
+    }
+    .avatarComment{
+        width: 12vh !important;
+        height: 12vh !important;
+    }
+
+} 

@@ -13,6 +13,8 @@ import '../styles/tinerary.css'
 import itineraryActions from '../redux/actions/itineraryActions'
 import { useDispatch, useSelector } from 'react-redux'
 import Comments from './Comments'
+import { toast } from 'react-toastify';
+
 
 
 
@@ -51,9 +53,16 @@ function TineraryCard(props) {
 
     const favoriteAction = async (event) => {
         event.preventDefault()
-        await dispatch(itineraryActions.likeAndDislikes(props._id))
+        const res = await dispatch(itineraryActions.likeAndDislikes(props._id))
         //console.log(res)
         setReload(!reload)
+
+        
+        if (res.data.success) {
+            toast(res.data.message)
+        } else {
+            toast.error(res.data.message)
+        }
     }   
 
     // CARD //
@@ -91,7 +100,7 @@ function TineraryCard(props) {
                             </div>
                             :
                             <div className='favoriteButton'>
-                                <IconButton aria-label="add to favorites">
+                                <IconButton aria-label="add to favorites" >
                                     <FavoriteIcon  fontSize='large' />
                                 </IconButton>
                                     <p>{likes.length}</p>
