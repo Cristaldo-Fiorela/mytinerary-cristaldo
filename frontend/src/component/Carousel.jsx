@@ -54,7 +54,7 @@ function PopularTinerary() {
                 >
                     {cities.map((city, index) =>
                         <SwiperSlide key={index}
-                            style={{ backgroundImage: `url(${process.env.PUBLIC_URL + (city.image)})` }}
+                            style={{ backgroundImage: `url(${(city.image)})` }}
                             className="carruselImages"
                         >
                             <div className="titleContainer">

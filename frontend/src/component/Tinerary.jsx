@@ -83,7 +83,7 @@ function TineraryCard(props) {
                         <div className='userTineraryCreator'>
                             <Avatar
                                 alt="Remy Sharp"
-                                src={process.env.PUBLIC_URL + (props.userPhoto)}
+                                src={(props.userPhoto)}
                                 sx={{ height: 200, width: 200 }}
                             />
                             <p> | {props.userName} | </p>

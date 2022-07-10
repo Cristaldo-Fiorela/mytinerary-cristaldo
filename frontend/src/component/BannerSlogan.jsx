@@ -8,7 +8,7 @@ function BannerSlogan() {
             <video className="background-video" autoPlay loop muted >
                 <source src='https://i.imgur.com/9waHzuw.mp4' type='video/mp4' />
             </video>
-            <img className="logo-banner" src={process.env.PUBLIC_URL+"/assets/logoMyTineraryColor.png"} alt="logo" />
+            <img className="logo-banner" src='https://i.imgur.com/0MtMWli.png' alt="logo" />
             <h1 className="slogan-h1">Find your perfect trip, designed by insiders who know and love their cities!</h1>
         </div>
     )

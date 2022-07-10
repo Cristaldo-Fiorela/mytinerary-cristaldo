@@ -15,7 +15,7 @@ function CallToAction() {
     }
     return (
         <div className="to-action">
-            <img src={process.env.PUBLIC_URL + "/assets/geisha.png"} alt="geisha" className="geisha-img" />
+            <img src='https://i.imgur.com/879Nhn0.png' alt="geisha" className="geisha-img" />
 
             <div className="textCallTo">
                 <div className="textJapan">

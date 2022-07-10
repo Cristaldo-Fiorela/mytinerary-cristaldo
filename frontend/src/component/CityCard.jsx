@@ -60,7 +60,7 @@ function DisplayCardCities() {
                 {cityFiltered.length > 0 ? (
                 cityFiltered.map((city, index) =>
                     <Card
-                        sx={{ backgroundImage: `url(${process.env.PUBLIC_URL + (city.image)})` }}
+                        sx={{ backgroundImage: `url(${(city.image)})` }}
                         key={index}
                         className="Card overlay"
                         onClick={ScrollToTop}

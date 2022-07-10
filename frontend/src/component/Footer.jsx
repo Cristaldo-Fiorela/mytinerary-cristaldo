@@ -46,7 +46,7 @@ function Footer() {
                 </LinkRouter>
                 
             </div>
-            <img src={process.env.PUBLIC_URL+"/assets/logoMyTineraryColor.png"} className="footerLogo" alt="LOGO" style={{height: "10rem"}} />
+            <img src='https://i.imgur.com/0MtMWli.png' className="footerLogo" alt="LOGO" style={{height: "10rem"}} />
         </div>
         <div className="copyrg">
             <p> Copyright © 2022 Cristaldo Fiorela</p>

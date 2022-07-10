@@ -82,7 +82,7 @@ const LogOutNavBar = () => {
                 <Toolbar  disableGutters>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                    <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} />
+                    <img src='https://i.imgur.com/C3imTqV.png' alt="logo" style={{height: "4rem"}} />
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -127,7 +127,7 @@ const LogOutNavBar = () => {
                     </Box>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                    <img src={process.env.PUBLIC_URL+"/assets/logo.png"} alt="logo" style={{height: "4rem"}} />
+                    <img src='https://i.imgur.com/C3imTqV.png' alt="logo" style={{height: "4rem"}} />
                         {pages.map((page, index) => (
                             <LinkRouter 
                             to={page.to}

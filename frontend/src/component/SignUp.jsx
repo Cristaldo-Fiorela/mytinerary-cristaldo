@@ -99,7 +99,7 @@ export default function SignUp() {
                             alignItems: 'center',
                         }}
                     >
-                            <img src={process.env.PUBLIC_URL + "/assets/pinkLogo.png"} alt='sakura_logo' className='logoSignForm'/>
+                            <img src='https://i.imgur.com/88RQV1o.png' alt='sakura_logo' className='logoSignForm'/>
 
                         <Typography component="h1" variant="h5">
                             Sign up

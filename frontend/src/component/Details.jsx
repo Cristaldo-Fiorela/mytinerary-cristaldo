@@ -32,7 +32,7 @@ function Details() {
 
     return (
         <>
-            <div className="cityImage" style={{ backgroundImage: `url(${process.env.PUBLIC_URL + (dataCities.image)})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
+            <div className="cityImage" style={{ backgroundImage: `url(${(dataCities.image)})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
                 <div className="bgColor">
                     <h5 className="cityTitle">Welcome to {dataCities.name}</h5>
                 </div>

@@ -23,7 +23,7 @@ function UnderConstruction() {
                     <button onClick={ScrollToTop} className="learn-more">Back to Cities</button>
                 </LinkRouter>
             </div>
-            <img className="geishaMessage" src={process.env.PUBLIC_URL + "/assets/under-construction.png"} alt="messageUnderConstruction" />
+            <img className="geishaMessage" src='https://i.imgur.com/tbao18S.png' alt="messageUnderConstruction" />
         </div>
         </div>
     )
