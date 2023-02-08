@@ -1,0 +1,116 @@
+.popularContainer {
+  height: fit-content;
+  width: 100%;
+  background-color: #9FBFB9;
+  padding-bottom: 2vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.popularMyTinerary {
+  height: 20vh;
+  color: #A62D43;
+  background-image: url(https://i.imgur.com/RTiPj8f.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerCarousel {
+  padding-top: .5vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.carruselImages {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  object-fit: contain;
+}
+
+.cityName {
+  z-index: 1;
+  text-align: center;
+}
+
+.swiperTitle {
+  font-size: 2rem;
+  background-color: #285954a3;
+  color: #F2F2F2;
+}
+
+.titleContainer {
+  width: 100%;
+}
+
+/* start carousel */
+
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mySwiper {
+  height: 36vw;
+  width: 80vw;
+}
+
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  height: calc((100% - 30px) / 2) !important;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: flex-end;
+}
+
+
+.swiper-button-next, .swiper-button-prev {
+  color: #A62D43 !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #A62D43 !important;
+}
+
+@media (max-width: 1200px) {
+  .mySwiper {
+    height: 60vw;
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .mySwiper {
+    height: 80vw;
+    width: 90%;
+  }
+}
+
+@media (max-width: 578px) {
+  .mySwiper {
+    height: 90vw;
+    width: 90%;
+  }
+}
+
+

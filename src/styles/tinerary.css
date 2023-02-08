@@ -1,0 +1,306 @@
+
+.cardTinerary {  
+    display: flex;
+    flex-direction: column;
+    background-color: #9FBFB9;
+    padding: 1rem;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 3px hsl(0deg 0% 57% / 39%);
+    width: 80vw;
+    height: auto;
+}
+
+.tineraryTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 4vh;
+    font-weight: bold;
+    color: aliceblue;
+    text-shadow: 4px 4px 2px rgb(98, 95, 95);
+    width: 100%;
+    height: 10vh;
+    background-image: url(https://i.imgur.com/z3F8BCU.jpg);
+}
+
+.titleBox {
+    background-color: #A62D43;
+    padding-left: .8rem;
+    padding-right: .8rem;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+}
+
+.userTineraryCreator {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-size: 5vh;
+    color: #F2F2F2;
+    font-weight: bolder;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-shadow: 4px 4px 2px rgb(98, 95, 95);
+}
+
+.tineraryInfo {
+    font-size: 3vh;
+    display: flex;
+    justify-content: space-around;
+    color: black;
+
+}
+
+.tineraryHashtags {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+.hashtag{
+    font-size: 2.5vh;
+    color: #A62D43;
+}
+
+.hashtag:hover{
+    font-size: 2.5vh;
+    color: #F2F2F2;
+    text-shadow: 7px 1px 25px #A62D43;
+}
+
+.comingSoon {
+    text-align: center;
+    color: #A62D43;
+    background-color: #f2f2f2e2;
+    border-radius: 30px;
+    padding: 1rem;
+    font-size: 5vh;
+    font-family: 'Ropa Sans', sans-serif;
+}
+
+.notItinerary {
+    width: 100%;
+    background-image: url(https://i.imgur.com/z3F8BCU.jpg);
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.notTineraryText {
+    font-size: 3vw;
+    width: fit-content;
+    background-color: #A62D43;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: #F2F2F2;
+}
+
+.expandContainer {
+    height: max-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 3rem;
+    align-items: center;
+    background-color: #F2F2F2;
+    border-radius: 30px;
+    background-image: url(https://i.imgur.com/z3F8BCU.jpg);
+    background-position: center;
+}
+
+.sectionTitle{
+    background-color: #A62D43;
+    height: 8vh;
+    width: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5vh;
+    color: aliceblue;
+    text-shadow: 4px 4px 2px #625f5f;
+    margin-top: 2rem;
+}
+
+.activitiesContainer {
+    height: 40%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
+
+}
+.activityContainer {
+    width: 40vh;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.activityImage {
+    height: auto;
+    width: 100%;
+    border-radius: 30px;
+}
+
+.activityName {
+    font-size: 3vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7vh;
+    background-color: #A62D43;
+    background-color: #285954;
+    color: aliceblue;
+    text-shadow: 4px 4px 2px rgb(98, 95, 95);
+    border-radius: 10px;
+}
+
+.favoriteButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+@media (max-width: 1200px) {
+    .notTineraryText {
+        font-size: 4vw;
+    }
+}
+
+
+@media (max-width: 786px) {
+    .tineraryTitle {
+        font-size: 3.5vh;
+        font-weight: bold;
+        flex-wrap: wrap;
+        color: aliceblue;
+        text-shadow: 4px 4px 2px rgb(98, 95, 95);
+        width: 100%;
+        height: 13vh;
+        background-image: url(https://i.imgur.com/z3F8BCU.jpg);
+    }
+    .titleBox {
+        background-color: #A62D43;
+        padding-top: .2rem;
+        padding-bottom: .2rem;
+    }
+    .notTineraryText {
+        font-size: 6vw;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .tineraryTitle {
+        font-size: 2.5vh;
+        font-weight: bold;
+        flex-wrap: wrap;
+        color: aliceblue;
+        text-shadow: 4px 4px 2px rgb(98, 95, 95);
+        width: 100%;
+        height: 13vh;
+        background-image: url(https://i.imgur.com/z3F8BCU.jpg);
+    }
+    .titleBox {
+        background-color: #A62D43;
+        padding-top: .2rem;
+        padding-bottom: .2rem;
+    }
+    .userTineraryCreator {
+        flex-direction: column;
+    }
+    .tineraryInfo {
+        font-size: 3vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        justify-content: space-around;
+        color: black;
+    }
+    .notTineraryText {
+        font-size: 8vw;
+    }
+    .activityName{
+        font-size: 2.6vh;
+    }
+    .comingSoon{
+        padding: .5rem;
+        font-size: 7vh !important;
+    }
+}
+@media (max-width: 476px){
+    .css-46bh2p-MuiCardContent-root{
+        padding: 0 !important;
+    }
+    .activityName{
+        width: 90%;
+    }
+    .activityContainer{
+        align-items: center;
+    }
+    .activityImage{
+        width: 90%;
+    }
+}
+@media (max-width: 442px){
+    .titleBox{
+        font-size: 3vh;
+    }
+
+}
+@media (max-width: 376px){
+    .comingSoon{
+        padding: .5rem;
+        font-size: 6vh !important;
+    }
+    .titleBox{
+        font-size: 3vh;
+    }
+}
+@media (max-width: 321px) {
+    .titleBox {
+        font-size: 2.5vh;
+    }
+    .sectionTitle {
+        height: 8vh;
+        width: 90%;
+    }
+    .activityName{
+        width: 90%;
+    }
+    .activityContainer{
+        align-items: center;
+    }
+    .css-46bh2p-MuiCardContent-root{
+        padding: 0 !important;
+    }
+    .activityImage{
+        width: 95%;
+    }
+    .css-1pqm26d-MuiAvatar-img{
+        height: 80% !important;
+        width: 80% !important;
+        border-radius: 100%;
+    }
+    .userTineraryCreator{
+        gap: 0 !important;
+    }
+    .comingSoon{
+        padding: .5rem;
+    }
+}

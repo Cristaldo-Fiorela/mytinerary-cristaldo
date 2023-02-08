@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.underlineNone {
+    text-decoration: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+  /* Track */
+::-webkit-scrollbar-track {
+    background: #9FBFB9 ;
+}
+
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #285954;
+
+}
+
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #A62D43;
+}
+
+
+/* color:
+
+primary ----> #A62D43 (fucsia)
+secondary ----> #9FBFB9 (verde claro)
+third ----> #285954 (verde oscuro)
+
+base ---> #F2F2F2  */
+
+p::selection, h4::selection, h2::selection, h5::selection, label::selection, img::selection, h1::selection, h3::selection, input::selection, button::selection {
+    background: #F27E7E;
+    color: #fff;
+}

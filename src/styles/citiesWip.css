@@ -1,0 +1,89 @@
+.containerCitiesBody {
+    height: 100vh;
+}
+
+
+.containerConstruction {
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    color: #A62D43;
+    height: 100%;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.search {
+    height: 3vw;
+    background-color: #9FBFB9;
+    color: #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    font-size: 1.5rem;
+    gap: 1rem;
+}
+
+.geishaMessage {
+    max-width: 100%;
+    height: auto;
+    padding-top: 1.5rem;
+}
+
+
+@media (max-width: 1440px) {
+    .search {
+        height: 4vw;
+    }
+    .containerConstruction{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .search {
+        height: 6vw;
+    }
+    .containerConstruction{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 786px) {
+    .search {
+        height: 10vw;
+    }
+    .containerConstruction{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .search {
+        height: 15vw;
+    }
+    .containerConstruction{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+}
